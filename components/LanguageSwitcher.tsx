@@ -6,9 +6,10 @@ import { Globe } from 'lucide-react';
 
 interface LanguageSwitcherProps {
   lang: Locale;
+  isOnHero?: boolean;
 }
 
-export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ lang, isOnHero = false }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -26,7 +27,11 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
   return (
     <div className="relative inline-block">
       <button
-        className="flex items-center space-x-1 rounded-md border border-border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-accent"
+        className={`flex items-center space-x-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+          isOnHero
+            ? 'border border-white/30 text-white hover:bg-white/10'
+            : 'border border-border text-foreground hover:bg-accent'
+        }`}
         onClick={() => switchLanguage(lang === 'fr' ? 'en' : 'fr')}
         aria-label="Switch language"
       >

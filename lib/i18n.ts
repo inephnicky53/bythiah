@@ -6,7 +6,7 @@ export const defaultLocale: Locale = 'fr';
 
 // Type for translations
 export type Translations = {
-  [key: string]: string | Translations;
+  [key: string]: string | string[] | Translations;
 };
 
 // Navigation translations
@@ -34,71 +34,97 @@ const home = {
   fr: {
     hero: {
       title: 'The Bythiah Project',
-      subtitle: 'Transformer des vies à travers l\'éducation, la santé et le développement communautaire',
+      subtitle: 'Agir ensemble pour le bien-être universel',
       cta: 'Découvrir notre mission',
     },
-    mission: {
-      title: 'Notre Mission',
-      description: 'Nous nous engageons à créer un impact durable dans les communautés en fournissant un accès à l\'éducation de qualité, aux soins de santé et aux opportunités de développement économique.',
+    intro: {
+      title: 'Agir ensemble pour le bien-être universel',
+      description: 'Organisation non gouvernementale à caractère philanthropique, The Bythiah Project œuvre dans les secteurs de l\'éducation, de la santé et du sport, en République démocratique du Congo et dans d\'autres pays.',
+      since: 'Depuis plus d\'une décennie, l\'organisation agit pour l\'assistance à l\'enfance et à la jeunesse, en particulier auprès des populations vulnérables.',
     },
     pillars: {
-      title: 'Nos Piliers',
-      education: {
-        title: 'Éducation',
-        description: 'Offrir un accès à une éducation de qualité pour tous les enfants',
-      },
-      health: {
-        title: 'Santé',
-        description: 'Améliorer l\'accès aux soins de santé et promouvoir le bien-être',
-      },
-      community: {
-        title: 'Développement Communautaire',
-        description: 'Renforcer les communautés à travers des initiatives durables',
-      },
+      title: 'Nos piliers d\'action',
+      education: 'Éducation',
+      health: 'Santé',
+      sport: 'Sport',
+      priority: 'Notre priorité : l\'assistance à l\'enfance et à la jeunesse.',
     },
-    programs: {
-      title: 'Nos Programmes',
-      description: 'Découvrez comment nous faisons la différence',
+    about: {
+      title: 'Qui sommes-nous ?',
+      description: 'The Bythiah Project est une organisation non gouvernementale créée en 2010, engagée pour l\'amélioration durable des conditions de vie des enfants et des jeunes.',
+      intervention: 'Elle intervient dans les domaines de l\'éducation, de la santé et du sport, conformément au décret ministériel n°011/CAB/ME/J & GS/2018.',
     },
-    cta: {
-      title: 'Rejoignez-nous dans notre mission',
-      description: 'Ensemble, nous pouvons créer un changement positif et durable',
-      button: 'Nous soutenir',
+    vocation: {
+      title: 'Notre vocation',
+      description: 'Notre vocation première est l\'assistance aux personnes vulnérables et stigmatisées, notamment celles affectées par le VIH/SIDA, la drépanocytose, l\'épilepsie et le handicap.',
+      support: 'Au-delà de l\'aide matérielle, nous apportons un accompagnement moral et psychologique afin de restaurer la dignité et l\'espérance.',
+    },
+    mission: {
+      title: 'Notre mission',
+      description: 'Soutenir les enfants et les jeunes démunis, particulièrement :',
+      targets: [
+        'les orphelins',
+        'les drépanocytaires',
+        'les épileptiques',
+        'les personnes vivant avec le VIH/SIDA',
+        'les enfants et jeunes vivant avec handicap',
+      ],
+    },
+    vision: {
+      title: 'Notre vision',
+      description: 'Bâtir l\'avenir par l\'éducation et faire de l\'assistance à l\'enfance et à la jeunesse une priorité, afin de figurer parmi les meilleures organisations œuvrant dans les secteurs de l\'éducation, de la santé et du sport.',
+    },
+    motto: {
+      title: 'Notre devise',
+      text: 'Agir ensemble pour le bien-être universel.',
     },
   },
   en: {
     hero: {
       title: 'The Bythiah Project',
-      subtitle: 'Transforming lives through education, health, and community development',
+      subtitle: 'Acting together for universal well-being',
       cta: 'Discover our mission',
     },
-    mission: {
-      title: 'Our Mission',
-      description: 'We are committed to creating lasting impact in communities by providing access to quality education, healthcare, and economic development opportunities.',
+    intro: {
+      title: 'Acting together for universal well-being',
+      description: 'A philanthropic non-governmental organization, The Bythiah Project works in the sectors of education, health, and sports in the Democratic Republic of Congo and other countries.',
+      since: 'For over a decade, the organization has been working to assist children and youth, particularly among vulnerable populations.',
     },
     pillars: {
-      title: 'Our Pillars',
-      education: {
-        title: 'Education',
-        description: 'Providing access to quality education for all children',
-      },
-      health: {
-        title: 'Health',
-        description: 'Improving access to healthcare and promoting wellness',
-      },
-      community: {
-        title: 'Community Development',
-        description: 'Strengthening communities through sustainable initiatives',
-      },
+      title: 'Our pillars of action',
+      education: 'Education',
+      health: 'Health',
+      sport: 'Sport',
+      priority: 'Our priority: assistance to children and youth.',
     },
-    programs: {
-      title: 'Our Programs',
-      description: 'Discover how we make a difference',
+    about: {
+      title: 'Who are we?',
+      description: 'The Bythiah Project is a non-governmental organization created in 2010, committed to the sustainable improvement of living conditions for children and young people.',
+      intervention: 'It operates in the fields of education, health, and sports, in accordance with ministerial decree n°011/CAB/ME/J & GS/2018.',
     },
-    cta: {
-      title: 'Join us in our mission',
-      description: 'Together, we can create positive and lasting change',
-      button: 'Support us',
+    vocation: {
+      title: 'Our vocation',
+      description: 'Our primary vocation is to assist vulnerable and stigmatized people, particularly those affected by HIV/AIDS, sickle cell disease, epilepsy, and disability.',
+      support: 'Beyond material aid, we provide moral and psychological support to restore dignity and hope.',
+    },
+    mission: {
+      title: 'Our mission',
+      description: 'Supporting disadvantaged children and youth, particularly:',
+      targets: [
+        'orphans',
+        'people with sickle cell disease',
+        'people with epilepsy',
+        'people living with HIV/AIDS',
+        'children and youth living with disabilities',
+      ],
+    },
+    vision: {
+      title: 'Our vision',
+      description: 'Building the future through education and making assistance to children and youth a priority, in order to be among the best organizations working in the sectors of education, health, and sports.',
+    },
+    motto: {
+      title: 'Our motto',
+      text: 'Acting together for universal well-being.',
     },
   },
 };

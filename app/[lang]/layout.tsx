@@ -41,7 +41,7 @@ export default function LangLayout({
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">
           <Header lang={lang} />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 top-0">{children}</main>
           <Footer lang={lang} />
         </div>
       </body>

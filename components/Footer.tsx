@@ -14,9 +14,16 @@ export default function Footer({ lang }: FooterProps) {
     <footer className="border-t border-border/40 bg-accent text-accent-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* About Section */}
+          {/* Logo and About Section */}
           <div>
-            <h3 className="mb-4 text-lg font-bold text-primary">The Bythiah Project</h3>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo2.png"
+              alt="The Bythiah Project"
+              height={50}
+              width={150}
+              className="mb-4 h-12 w-auto"
+            />
             <p className="text-sm text-accent-foreground/80">
               {lang === 'fr'
                 ? 'Une organisation dédiée à transformer des vies à travers l\'éducation, la santé et le développement communautaire.'

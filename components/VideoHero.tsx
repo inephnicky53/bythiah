@@ -1,0 +1,99 @@
+'use client';
+
+import { type Locale } from '@/lib/i18n';
+import { getTranslations, t as translate } from '@/lib/i18n';
+import Link from 'next/link';
+
+interface VideoHeroProps {
+  lang: Locale;
+}
+
+export default function VideoHero({ lang }: VideoHeroProps) {
+  const translations = getTranslations(lang);
+
+  return (
+    <section className="h-screen w-screen overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
+          className="h-full w-full object-cover"
+        >
+          <source src="https://cdn.coverr.co/videos/coverr-volunteers-helping-children-in-africa-8127/1080p.mp4" type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+        </video>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
+      {/* Content with gradient text at bottom */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-end pb-16">
+        <div className="w-full">
+          {/* Gradient text container */}
+          <div className="relative">
+            {/* Gradient overlay from transparent to dark */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+
+            {/* Text content */}
+            <div className="relative space-y-6 py-12 px-6 sm:px-8 lg:px-12 pb-24">
+              <h1 className="text-5xl font-bold text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                  {translate(translations, 'home.hero.title')}
+                </span>
+              </h1>
+
+              <p className="max-w-4xl text-xl text-white/90 sm:text-2xl lg:text-3xl xl:text-4xl">
+                {translate(translations, 'home.hero.subtitle')}
+              </p>
+
+              <div className="pt-6">
+                <Link
+                  href={`/${lang}/about`}
+                  className="inline-flex items-center rounded-full bg-primary px-10 py-5 text-lg font-semibold text-white transition-all hover:bg-primary/90 hover:scale-105 shadow-xl"
+                >
+                  {translate(translations, 'home.hero.cta')}
+                  <svg
+                    className="ml-2 h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce">
+        <svg
+          className="h-8 w-8 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}
+
