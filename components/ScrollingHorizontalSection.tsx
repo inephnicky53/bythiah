@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { type Locale } from '@/lib/i18n';
 import { getTranslations, t as translate } from '@/lib/i18n';
+import { useIsMobile } from '@/lib/hooks/useIsMobile';
 
 interface ScrollingHorizontalSectionProps {
   lang: Locale;
@@ -17,8 +18,8 @@ interface Pillar {
 
 export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontalSectionProps) {
   const translations = getTranslations(lang);
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isInSection, setIsInSection] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -62,33 +63,58 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
         }
       }
 
-      // Scroll trigger for carousel with sticky behavior
+      // Désactiver le scroll hijacking sur mobile
+      if (isMobile) {
+        return;
+      }
+
+      // Scroll trigger for carousel
       if (wrapperRef.current && sectionRef.current) {
         const wrapperRect = wrapperRef.current.getBoundingClientRect();
-        const sectionRect = sectionRef.current.getBoundingClientRect();
+        const wrapperHeight = wrapperRef.current.offsetHeight;
         const windowHeight = window.innerHeight;
 
-        // Check if section is in viewport
-        const sectionInView = sectionRect.top < windowHeight && sectionRect.bottom > 0;
-        setIsInSection(sectionInView);
+        // Vérifier si on est dans la zone de scroll hijacking
+        const isInScrollZone = wrapperRect.top <= 0 && wrapperRect.bottom > windowHeight;
 
-        // Calculate scroll progress within the section
-        const sectionTop = sectionRect.top;
-        const sectionHeight = sectionRect.height;
-        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight)));
+        if (isInScrollZone) {
+          // Calculer la progression dans le wrapper (0 à 1)
+          const scrollProgress = Math.max(0, Math.min(1, -wrapperRect.top / (wrapperHeight - windowHeight)));
 
-        // Calculate which pillar should be active based on scroll progress
-        const newIndex = Math.floor(scrollProgress * pillars.length);
-        const clampedIndex = Math.min(newIndex, pillars.length - 1);
+          // Calculer l'index actif basé sur la progression
+          const totalPillars = pillars.length;
+          const newIndex = Math.floor(scrollProgress * totalPillars);
+          const clampedIndex = Math.max(0, Math.min(newIndex, totalPillars - 1));
 
-        setActiveIndex(clampedIndex);
+          setActiveIndex(clampedIndex);
+          
+          // Fixer la section
+          if (sectionRef.current) {
+            sectionRef.current.style.position = 'fixed';
+            sectionRef.current.style.top = '0';
+          }
+        } else if (wrapperRect.top > 0) {
+          // Avant la section - position absolute en haut
+          if (sectionRef.current) {
+            sectionRef.current.style.position = 'absolute';
+            sectionRef.current.style.top = '0';
+          }
+          setActiveIndex(0);
+        } else {
+          // Après la section - position absolute en bas
+          if (sectionRef.current) {
+            sectionRef.current.style.position = 'absolute';
+            sectionRef.current.style.top = `${wrapperHeight - windowHeight}px`;
+          }
+          setActiveIndex(pillars.length - 1);
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pillars.length]);
+  }, [pillars.length, isMobile]);
 
   const handlePrevious = () => {
     setActiveIndex((prev) => (prev === 0 ? pillars.length - 1 : prev - 1));
@@ -99,104 +125,112 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
   };
 
   return (
-    <section ref={sectionRef} className="relative bg-accent py-20 h-screen">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-10">
-        {/* Title */}
-        <h2
-          ref={titleRef}
-          className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl underline-svg mb-16 text-center"
-        >
-          {translate(translations, 'home.pillars.title')}
-          <svg
-            viewBox="0 0 200 12"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            className="mt-4"
+    <div ref={wrapperRef} className="relative">
+      {/* Spacer pour créer l'espace de scroll */}
+      <div className="h-[300vh]" />
+      
+      {/* Section fixée/absolue selon la position */}
+      <section 
+        ref={sectionRef} 
+        className="absolute top-0 left-0 w-full h-screen bg-accent flex items-center justify-center z-40"
+      >
+        <div className="container mx-auto px-4 sm:px-8 lg:px-10">
+          {/* Title */}
+          <h2
+            ref={titleRef}
+            className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl underline-svg mb-20 text-center"
           >
-            <path
-              d="M0,6 Q50,0 100,6 T200,6"
-              fill="none"
-              stroke="url(#gradient-pillars)"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <defs>
-              <linearGradient id="gradient-pillars" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#fff2d2" />
-                <stop offset="50%" stopColor="#8b7b3e" />
-                <stop offset="100%" stopColor="#fff2d2" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </h2>
+            {translate(translations, 'home.pillars.title')}
+            <svg
+              viewBox="0 0 200 12"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              className="mt-4"
+            >
+              <path
+                d="M0,6 Q50,0 100,6 T200,6"
+                fill="none"
+                stroke="url(#gradient-pillars)"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <defs>
+                <linearGradient id="gradient-pillars" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#fff2d2" />
+                  <stop offset="50%" stopColor="#8b7b3e" />
+                  <stop offset="100%" stopColor="#fff2d2" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </h2>
 
-        {/* Carousel */}
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-              {pillars.map((pillar) => (
-                <div key={pillar.id} className="w-full flex-shrink-0 px-4">
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    {/* Image */}
-                    <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={pillar.image}
-                        alt={pillar.title}
-                        className="h-full w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    </div>
+          {/* Carousel */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+                {pillars.map((pillar) => (
+                  <div key={pillar.id} className="w-full flex-shrink-0 px-4">
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                      {/* Image */}
+                      <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                          src={pillar.image}
+                          alt={pillar.title}
+                          className="h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      </div>
 
-                    {/* Content */}
-                    <div className="space-y-4">
-                      <h3 className="text-3xl font-bold text-white">{pillar.title}</h3>
-                      <p className="text-lg text-white/90 leading-relaxed">{pillar.description}</p>
+                      {/* Content */}
+                      <div className="space-y-4">
+                        <h3 className="text-3xl font-bold text-white">{pillar.title}</h3>
+                        <p className="text-lg text-white/90 leading-relaxed">{pillar.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={handlePrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 md:-translate-x-20 z-10 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors"
+              aria-label="Previous pillar"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 md:translate-x-20 z-10 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors"
+              aria-label="Next pillar"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Indicators */}
+            <div className="flex justify-center gap-2 mt-8">
+              {pillars.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === activeIndex ? 'bg-white w-8' : 'bg-white/40 w-2'
+                  }`}
+                  aria-label={`Go to pillar ${index + 1}`}
+                />
               ))}
             </div>
           </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 md:-translate-x-20 z-10 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors"
-            aria-label="Previous pillar"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 md:translate-x-20 z-10 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors"
-            aria-label="Next pillar"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
-            {pillars.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === activeIndex ? 'bg-white w-8' : 'bg-white/40 w-2'
-                }`}
-                aria-label={`Go to pillar ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

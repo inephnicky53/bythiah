@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { type Locale } from '@/lib/i18n';
 import { getTranslations, t as translate } from '@/lib/i18n';
 import { useInView } from '@/lib/hooks/useInView';
+import { useIsMobile } from '@/lib/hooks/useIsMobile';
 
 interface ScrollingSectionProps {
   lang: Locale;
@@ -18,6 +19,7 @@ interface Section {
 
 export default function ScrollingSection({ lang }: ScrollingSectionProps) {
   const translations = getTranslations(lang);
+  const isMobile = useIsMobile();
   const [activeSection, setActiveSection] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
@@ -75,7 +77,7 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
         '',
         lang === 'fr'
           ? 'Chaque enfant mérite une chance de réussir. Notre mission est de leur fournir les outils, le soutien et l\'amour nécessaires pour construire un avenir meilleur.'
-          : 'Every child deserves a chance to succeed. Our mission is to provide them with the tools, support, and love needed to build a better future.',
+          : 'Every child deserves a chance to succeed. Our mission is to provide them with the tools, support and love needed to build a better future.',
       ],
       image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80',
     },
@@ -89,27 +91,43 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
           ? 'Nous rêvons d\'un monde où chaque enfant, indépendamment de son origine ou de sa condition, a accès à une éducation de qualité, à des soins de santé adéquats et à des opportunités de développement personnel. C\'est cette vision qui guide chacune de nos actions.'
           : 'We dream of a world where every child, regardless of their origin or condition, has access to quality education, adequate healthcare, and personal development opportunities. This vision guides all our actions.',
       ],
-      image: 'https://images.unsplash.com/photo-1497375558884-7fca3c1e3b63?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
     },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      if (!sectionRefs.current.length) return;
 
-      sectionRefs.current.forEach((ref, index) => {
-        if (ref) {
-          const { offsetTop, offsetHeight } = ref;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(index);
+      // Calculer quelle section est la plus visible
+      let maxVisibility = 0;
+      let mostVisibleIndex = 0;
+
+      sectionRefs.current.forEach((section, index) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // Calculer la visibilité (0 à 1)
+          const visibleTop = Math.max(0, Math.min(windowHeight, rect.bottom));
+          const visibleBottom = Math.max(0, Math.min(windowHeight, windowHeight - rect.top));
+          const visibility = (visibleTop + visibleBottom) / (windowHeight * 2);
+
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisibleIndex = index;
           }
         }
       });
 
-      // Ajouter la classe visible aux titres quand ils sont visibles
+      setActiveSection(mostVisibleIndex);
+
+      // Désactiver les animations sur mobile
+      if (isMobile) {
+        return;
+      }
+
+      // Animer les titres
       titleRefs.current.forEach((titleRef) => {
         if (titleRef) {
           const rect = titleRef.getBoundingClientRect();
@@ -120,7 +138,7 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
         }
       });
 
-      // Ajouter la classe visible aux contenus quand ils sont visibles
+      // Animer les contenus
       contentRefs.current.forEach((contentRef) => {
         if (contentRef) {
           const rect = contentRef.getBoundingClientRect();
@@ -133,10 +151,9 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="relative bg-white">

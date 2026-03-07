@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { type Locale } from '@/lib/i18n';
 import { Quote } from 'lucide-react';
+import { useIsMobile } from '@/lib/hooks/useIsMobile';
 
 interface TestimonialsProps {
   lang: Locale;
@@ -17,12 +18,18 @@ interface Testimonial {
 }
 
 export default function Testimonials({ lang }: TestimonialsProps) {
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Désactiver les animations sur mobile
+      if (isMobile) {
+        return;
+      }
+
       // Animer le titre
       if (titleRef.current) {
         const rect = titleRef.current.getBoundingClientRect();
@@ -48,7 +55,7 @@ export default function Testimonials({ lang }: TestimonialsProps) {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   const testimonials: Testimonial[] = lang === 'fr' ? [
     {
