@@ -90,6 +90,62 @@
   .underline-svg.visible svg path {
     stroke-dashoffset: 0;
   }
+
+  /* Désactiver les animations complexes sur mobile */
+  @media (max-width: 768px) {
+    /* Fade-in simple sans animation */
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: none;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Slide-in depuis la gauche - désactivé */
+    .slide-in-left {
+      opacity: 1;
+      transform: translateX(0);
+      transition: none;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Slide-in depuis la droite - désactivé */
+    .slide-in-right {
+      opacity: 1;
+      transform: translateX(0);
+      transition: none;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Soulignement courbé - désactivé */
+    .underline-curved::after {
+      width: 100%;
+      transition: none;
+    }
+
+    /* SVG underline - désactivé */
+    .underline-svg svg {
+      opacity: 1;
+      transition: none;
+    }
+
+    .underline-svg svg path {
+      stroke-dashoffset: 0;
+      transition: none;
+    }
+  }
 }
 
 :root {

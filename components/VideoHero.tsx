@@ -32,29 +32,29 @@ export default function VideoHero({ lang }: VideoHeroProps) {
       </div>
 
       {/* Content with gradient text at bottom */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-end pb-16">
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-end">
         <div className="w-full">
           {/* Gradient text container */}
-          <div className="relative">
-            {/* Gradient overlay from transparent to dark */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+          <div className="relative w-full">
+            {/* Gradient overlay from transparent to dark - 100% width */}
+            <div className="absolute inset-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent" />
 
             {/* Text content */}
-            <div className="relative space-y-6 py-12 px-6 sm:px-8 lg:px-12 pb-24">
-              <h1 className="text-5xl font-bold text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+            <div className="relative w-full space-y-4 sm:space-y-6 py-8 sm:py-12 px-4 sm:px-8 lg:px-12 pb-20 sm:pb-24">
+              <h1 className="text-3xl sm:text-5xl font-bold text-white sm:text-6xl lg:text-7xl xl:text-8xl leading-tight">
                 <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                   {translate(translations, 'home.hero.title')}
                 </span>
               </h1>
 
-              <p className="max-w-4xl text-xl text-white/90 sm:text-2xl lg:text-3xl xl:text-4xl">
+              <p className="max-w-4xl text-base sm:text-xl text-white/90 sm:text-2xl lg:text-3xl xl:text-4xl leading-relaxed">
                 {translate(translations, 'home.hero.subtitle')}
               </p>
 
-              <div className="pt-6">
+              <div className="pt-4 sm:pt-6">
                 <Link
                   href={`/${lang}/about`}
-                  className="inline-flex items-center rounded-full bg-primary px-10 py-5 text-lg font-semibold text-white transition-all hover:bg-primary/90 hover:scale-105 shadow-xl"
+                  className="inline-flex items-center rounded-full bg-primary px-6 sm:px-10 py-3 sm:py-5 text-base sm:text-lg font-semibold text-white transition-all hover:bg-primary/90 hover:scale-105 shadow-xl"
                 >
                   {translate(translations, 'home.hero.cta')}
                   <svg

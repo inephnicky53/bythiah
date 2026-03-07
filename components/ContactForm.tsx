@@ -47,15 +47,15 @@ export default function ContactForm({ lang }: ContactFormProps) {
   ];
 
   return (
-    <div className="grid md:grid-cols-2 gap-12">
+    <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
       {/* Formulaire */}
       <div>
-        <h2 className="text-2xl font-bold text-foreground mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
           {lang === 'fr' ? 'Envoyez-nous un message' : 'Send us a message'}
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block text-sm sm:text-base font-medium text-foreground mb-2">
               {lang === 'fr' ? 'Nom' : 'Name'}
             </label>
             <input
@@ -64,12 +64,12 @@ export default function ContactForm({ lang }: ContactFormProps) {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 text-base border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder={lang === 'fr' ? 'Votre nom' : 'Your name'}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block text-sm sm:text-base font-medium text-foreground mb-2">
               Email
             </label>
             <input
@@ -78,12 +78,12 @@ export default function ContactForm({ lang }: ContactFormProps) {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 text-base border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="votre@email.com"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block text-sm sm:text-base font-medium text-foreground mb-2">
               {lang === 'fr' ? 'Sujet' : 'Subject'}
             </label>
             <input
@@ -92,12 +92,12 @@ export default function ContactForm({ lang }: ContactFormProps) {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 text-base border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder={lang === 'fr' ? 'Sujet du message' : 'Message subject'}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block text-sm sm:text-base font-medium text-foreground mb-2">
               {lang === 'fr' ? 'Message' : 'Message'}
             </label>
             <textarea
@@ -106,7 +106,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 text-base border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder={lang === 'fr' ? 'Votre message...' : 'Your message...'}
             />
           </div>
@@ -126,7 +126,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
 
       {/* Informations de contact */}
       <div>
-        <h2 className="text-2xl font-bold text-foreground mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
           {lang === 'fr' ? 'Nos coordonnées' : 'Contact Information'}
         </h2>
         <div className="space-y-6">
@@ -136,12 +136,12 @@ export default function ContactForm({ lang }: ContactFormProps) {
               <a
                 key={index}
                 href={info.href}
-                className="flex items-start space-x-4 p-4 rounded-lg hover:bg-accent/10 transition-colors"
+                className="flex items-start space-x-4 p-4 sm:p-5 rounded-lg hover:bg-accent/10 transition-colors"
               >
-                <Icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-foreground">{info.label}</h3>
-                  <p className="text-foreground/70">{info.value}</p>
+                  <h3 className="font-semibold text-base sm:text-lg text-foreground">{info.label}</h3>
+                  <p className="text-sm sm:text-base text-foreground/70">{info.value}</p>
                 </div>
               </a>
             );
