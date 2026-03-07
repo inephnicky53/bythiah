@@ -25,6 +25,15 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
   const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Pale/soft colors for each section
+  const paleColors = [
+    'bg-amber-50',      // Intro - very light beige
+    'bg-orange-50',     // About - light cream
+    'bg-yellow-50',     // Vocation - light pale yellow
+    'bg-rose-50',       // Mission - light pale rose
+    'bg-blue-50',       // Vision - light pale blue
+  ];
+
   // Define sections with their content
   const sections: Section[] = [
     {
@@ -156,7 +165,7 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
   }, [isMobile]);
 
   return (
-    <section className="relative bg-white">
+    <section className={`relative transition-colors duration-700 ${paleColors[activeSection] || 'bg-white'}`}>
       <div className="w-full">
         <div className="grid lg:grid-cols-2">
           {/* Left side - Scrolling text */}

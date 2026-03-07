@@ -25,6 +25,13 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // Hard/bold colors from brand charter for each pillar
+  const hardColors = [
+    'bg-blue-700',      // Education - bold blue
+    'bg-red-700',       // Health - bold red
+    'bg-green-700',     // Sport - bold green
+  ];
+
   const pillars: Pillar[] = [
     {
       id: 'education',
@@ -130,9 +137,9 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
       <div className="h-[300vh]" />
       
       {/* Section fixée/absolue selon la position */}
-      <section 
-        ref={sectionRef} 
-        className="absolute top-0 left-0 w-full h-screen bg-accent flex items-center justify-center z-40"
+      <section
+        ref={sectionRef}
+        className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center z-40 transition-colors duration-700 ${hardColors[activeIndex] || 'bg-accent'}`}
       >
         <div className="container mx-auto px-4 sm:px-8 lg:px-10">
           {/* Title */}
