@@ -77,12 +77,17 @@ export default function Footer({ lang }: FooterProps) {
               </li>
               <li className="flex items-start space-x-2">
                 <Phone size={16} className="mt-0.5 text-primary" />
-                <span className="text-accent-foreground/80">+1 (555) 123-4567</span>
+                <a
+                  href="tel:+243808511200"
+                  className="text-accent-foreground/80 transition-colors hover:text-primary"
+                >
+                  +243 808 511 200
+                </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="mt-0.5 text-primary" />
                 <span className="text-accent-foreground/80">
-                  {lang === 'fr' ? 'Adresse à définir' : 'Address to be defined'}
+                  1022, Av. des Forces Armées, B-16, Gombe – Kinshasa, RDC
                 </span>
               </li>
             </ul>

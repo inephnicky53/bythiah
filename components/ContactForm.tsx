@@ -38,12 +38,12 @@ export default function ContactForm({ lang }: ContactFormProps) {
 
   const contactInfo = lang === 'fr' ? [
     { icon: Mail, label: 'Email', value: 'contact@bythiah.org', href: 'mailto:contact@bythiah.org' },
-    { icon: Phone, label: 'Téléphone', value: '+243 (0) 123 456 789', href: 'tel:+243123456789' },
-    { icon: MapPin, label: 'Adresse', value: 'Kinshasa, République Démocratique du Congo', href: '#' },
+    { icon: Phone, label: 'Téléphone', value: '+243 808 511 200', href: 'tel:+243808511200' },
+    { icon: MapPin, label: 'Adresse', value: '1022, Avenue des Forces Armées, B-16, Gombe – Kinshasa, RDC', href: '#' },
   ] : [
     { icon: Mail, label: 'Email', value: 'contact@bythiah.org', href: 'mailto:contact@bythiah.org' },
-    { icon: Phone, label: 'Phone', value: '+243 (0) 123 456 789', href: 'tel:+243123456789' },
-    { icon: MapPin, label: 'Address', value: 'Kinshasa, Democratic Republic of Congo', href: '#' },
+    { icon: Phone, label: 'Phone', value: '+243 808 511 200', href: 'tel:+243808511200' },
+    { icon: MapPin, label: 'Address', value: '1022, Avenue des Forces Armées, B-16, Gombe – Kinshasa, DRC', href: '#' },
   ];
 
   return (

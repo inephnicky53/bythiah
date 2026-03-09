@@ -27,7 +27,7 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
 
   // Pale/soft colors for each section
   const paleColors = [
-    'bg-amber-50',      // Intro - very light beige
+    'bg-white',      // Intro - very light beige
     'bg-orange-50',     // About - light cream
     'bg-yellow-50',     // Vocation - light pale yellow
     'bg-rose-50',       // Mission - light pale rose
@@ -176,13 +176,13 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
                 ref={(el) => {
                   sectionRefs.current[index] = el;
                 }}
-                className="min-h-screen flex items-center px-6 py-16 sm:px-8 lg:px-10"
+                className="flex flex-col lg:min-h-screen lg:items-center px-6 py-10 sm:px-8 lg:px-10"
               >
                 <div
                   ref={(el) => {
                     contentRefs.current[index] = el;
                   }}
-                  className="space-y-5 max-w-2xl fade-in ml-40"
+                  className="space-y-5 max-w-2xl fade-in lg:ml-20"
                 >
                   <h2
                     ref={(el) => {
@@ -226,6 +226,19 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
                     )}
                   </div>
                 </div>
+
+                {/* Mobile image - below text */}
+                <div className="lg:hidden w-full mt-8 mb-8">
+                  <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -239,7 +252,7 @@ export default function ScrollingSection({ lang }: ScrollingSectionProps) {
                   className={`absolute transition-opacity duration-700 ${
                     activeSection === index ? 'opacity-100' : 'opacity-0'
                   }`}
-                  style={{ width: '80%', height: '80%' }}
+                  style={{ width: '90%', height: '80%' }}
                 >
                   <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { type Locale } from '@/lib/i18n';
+import {getTranslations, type Locale, t as translate} from '@/lib/i18n';
 import { X } from 'lucide-react';
 import { useIsMobile } from '@/lib/hooks/useIsMobile';
 
@@ -22,6 +22,7 @@ export default function ProjectGallery({ lang }: ProjectGalleryProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const translations = getTranslations(lang);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -146,34 +147,33 @@ export default function ProjectGallery({ lang }: ProjectGalleryProps) {
   ];
 
   return (
-    <section className="relative bg-white py-20 lg:py-32">
+    <section className="relative bg-white py-10 lg:py-15">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Title */}
-        <div className="mb-16 text-center fade-in">
+        <div className="mb-16 text-center">
           <h2
-            ref={titleRef}
-            className="text-4xl font-bold text-accent sm:text-5xl lg:text-6xl underline-svg mb-4"
+              ref={titleRef}
+              className="text-3xl font-bold text-accent sm:text-4xl lg:text-5xl underline-svg mb-5 text-center fade-in"
           >
-            {lang === 'fr' ? 'Nos Projets Réalisés' : 'Our Completed Projects'}
-            <svg 
-              viewBox="0 0 200 12" 
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              className="mx-auto"
-              style={{ width: '60%' }}
+            {translate(translations, 'home.projects.title')}
+            <svg
+                viewBox="0 0 200 12"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                className="mt-4"
             >
               <path
-                d="M0,6 Q50,0 100,6 T200,6"
-                fill="none"
-                stroke="url(#gradient-gallery)"
-                strokeWidth="3"
-                strokeLinecap="round"
+                  d="M0,6 Q50,0 100,6 T200,6"
+                  fill="none"
+                  stroke="url(#gradient-pillars)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
               />
               <defs>
-                <linearGradient id="gradient-gallery" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#8b7b3e" />
-                  <stop offset="50%" stopColor="#fff2d2" />
-                  <stop offset="100%" stopColor="#8b7b3e" />
+                <linearGradient id="gradient-pillars" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#fff2d2" />
+                  <stop offset="50%" stopColor="#8b7b3e" />
+                  <stop offset="100%" stopColor="#fff2d2" />
                 </linearGradient>
               </defs>
             </svg>

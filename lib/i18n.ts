@@ -78,6 +78,10 @@ const home = {
       title: 'Notre devise',
       text: 'Agir ensemble pour le bien-être universel.',
     },
+    projects: {
+      title: 'Nos projets',
+      description: 'Découvrez nos projets réalisés dans les domaines de l\'éducation, de la santé et du sport.',
+    },
   },
   en: {
     hero: {
@@ -125,6 +129,10 @@ const home = {
     motto: {
       title: 'Our motto',
       text: 'Acting together for universal well-being.',
+    },
+    projects: {
+      title: 'Our projects',
+      description: 'Discover our projects implemented in the fields of education, health, and sports.',
     },
   },
 };

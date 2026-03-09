@@ -118,13 +118,13 @@ export default function Testimonials({ lang }: TestimonialsProps) {
   ];
 
   return (
-    <section ref={sectionRef} className="relative bg-gradient-to-br from-secondary/30 via-white to-secondary/20 py-20 lg:py-32">
+    <section ref={sectionRef} className="relative bg-gradient-to-br from-secondary/30 via-white to-secondary/20 py-10 lg:py-15">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Title */}
-        <div className="mb-16 text-center fade-in">
+        <div className="mb-16 text-center">
           <h2
             ref={titleRef}
-            className="text-4xl font-bold text-accent sm:text-5xl lg:text-6xl underline-svg mb-4"
+            className="text-4xl font-bold text-accent sm:text-5xl lg:text-6xl underline-svg mb-4 fade-in"
           >
             {lang === 'fr' ? 'Témoignages' : 'Testimonials'}
             <svg 

@@ -27,9 +27,9 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
 
   // Hard/bold colors from brand charter for each pillar
   const hardColors = [
-    'bg-blue-700',      // Education - bold blue
-    'bg-red-700',       // Health - bold red
-    'bg-green-700',     // Sport - bold green
+    '#7c572c',      // Education - bold blue
+    '#9d8142',       // Health - bold red
+    '#5b532d',     // Sport - bold green
   ];
 
   const pillars: Pillar[] = [
@@ -39,7 +39,7 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
       description: lang === 'fr'
         ? 'L\'éducation est le fondement du développement durable et de la transformation sociale. Nous croyons fermement que chaque enfant, indépendamment de son origine ou de sa situation économique, mérite accès à une éducation de qualité.\n\nNos programmes éducatifs visent à développer non seulement les compétences académiques, mais aussi les compétences de vie essentielles. Nous travaillons avec les écoles, les familles et les communautés pour créer un environnement d\'apprentissage inclusif et stimulant.\n\nGrâce à nos initiatives, nous avons aidé des milliers d\'enfants à accéder à l\'éducation, à améliorer leurs résultats scolaires et à envisager un avenir meilleur.'
         : 'Education is the foundation of sustainable development and social transformation. We firmly believe that every child, regardless of their background or economic situation, deserves access to quality education.\n\nOur educational programs aim to develop not only academic skills but also essential life skills. We work with schools, families, and communities to create an inclusive and stimulating learning environment.\n\nThrough our initiatives, we have helped thousands of children access education, improve their academic results, and envision a better future.',
-      image: 'https://images.unsplash.com/photo-1427504494785-cdba58dadff0?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80',
     },
     {
       id: 'health',
@@ -139,7 +139,8 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
       {/* Section fixée/absolue selon la position */}
       <section
         ref={sectionRef}
-        className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center z-40 transition-colors duration-700 ${hardColors[activeIndex] || 'bg-accent'}`}
+        className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center z-40 transition-colors duration-700`}
+        style={{ backgroundColor: hardColors[activeIndex] || 'bg-accent' }}
       >
         <div className="container mx-auto px-4 sm:px-8 lg:px-10">
           {/* Title */}
@@ -178,7 +179,7 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
                 style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                 {pillars.map((pillar) => (
                   <div key={pillar.id} className="w-full flex-shrink-0 px-4">
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="grid lg:grid-cols-2 gap-8 items-center">
                       {/* Image */}
                       <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
                         <img
