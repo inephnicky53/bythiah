@@ -1,4 +1,5 @@
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
+import PageHero from '@/components/PageHero';
 
 interface AboutPageProps {
   params: {
@@ -12,19 +13,14 @@ export default function AboutPage({ params }: AboutPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="bg-accent py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            {translate(translations, 'nav.about')}
-          </h1>
-          <p className="text-lg text-white/90 max-w-2xl">
-            {lang === 'fr'
-              ? 'Découvrez l\'histoire et la mission de The Bythiah Project.'
-              : 'Discover the story and mission of The Bythiah Project.'}
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title={translate(translations, 'nav.about')}
+        description={lang === 'fr'
+          ? 'Découvrez l\'histoire et la mission de The Bythiah Project.'
+          : 'Discover the story and mission of The Bythiah Project.'}
+        color="#7c572c"
+        backgroundImage="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&q=80"
+      />
 
       {/* About Content */}
       <div className="container mx-auto px-4 py-16">

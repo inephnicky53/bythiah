@@ -1,5 +1,6 @@
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import ContactForm from '@/components/ContactForm';
+import PageHero from '@/components/PageHero';
 
 interface ContactPageProps {
   params: {
@@ -13,19 +14,14 @@ export default function ContactPage({ params }: ContactPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="bg-accent py-12 sm:py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            {translate(translations, 'nav.contact')}
-          </h1>
-          <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
-            {lang === 'fr'
-              ? 'Nous aimerions entendre parler de vous. Contactez-nous pour toute question ou suggestion.'
-              : 'We would love to hear from you. Contact us for any questions or suggestions.'}
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title={translate(translations, 'nav.contact')}
+        description={lang === 'fr'
+          ? 'Nous aimerions entendre parler de vous. Contactez-nous pour toute question ou suggestion.'
+          : 'We would love to hear from you. Contact us for any questions or suggestions.'}
+        color="#2c3e50"
+        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80"
+      />
 
       {/* Contact Form Section */}
       <div className="container mx-auto px-4 py-16">

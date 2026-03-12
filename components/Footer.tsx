@@ -20,8 +20,8 @@ export default function Footer({ lang }: FooterProps) {
             <img
               src="/images/logo2.png"
               alt="The Bythiah Project"
-              height={50}
-              width={150}
+              height={80}
+              width={180}
               className="mb-4 h-12 w-auto"
             />
             <p className="text-sm text-accent-foreground/80">
@@ -33,7 +33,7 @@ export default function Footer({ lang }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">{translate(translations, 'nav.about')}</h3>
+            <h3 className="mb-4 text-lg font-semibold">{translate(translations, 'nav.links')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -45,18 +45,18 @@ export default function Footer({ lang }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href={`/${lang}/programs`}
-                  className="text-accent-foreground/80 transition-colors hover:text-primary"
-                >
-                  {translate(translations, 'nav.programs')}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href={`/${lang}/pillars`}
                   className="text-accent-foreground/80 transition-colors hover:text-primary"
                 >
                   {translate(translations, 'nav.pillars')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                    href={`/${lang}/contact`}
+                    className="text-accent-foreground/80 transition-colors hover:text-primary"
+                >
+                  {translate(translations, 'nav.contact')}
                 </Link>
               </li>
             </ul>

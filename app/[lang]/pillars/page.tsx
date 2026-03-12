@@ -1,4 +1,5 @@
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
+import PageHero from '@/components/PageHero';
 
 interface ProgramsPageProps {
   params: {
@@ -102,19 +103,14 @@ export default function ProgramsPage({ params }: ProgramsPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="bg-accent py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            {translate(translations, 'nav.programs')}
-          </h1>
-          <p className="text-lg text-white/90 max-w-2xl">
-            {lang === 'fr'
-              ? 'Découvrez nos programmes d\'action dans les domaines de l\'éducation, de la santé et du sport.'
-              : 'Discover our action programs in the fields of education, health, and sports.'}
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title={translate(translations, 'nav.pillars')}
+        description={lang === 'fr'
+          ? 'Découvrez nos programmes d\'action dans les domaines de l\'éducation, de la santé et du sport.'
+          : 'Discover our action programs in the fields of education, health, and sports.'}
+        color="#7c572c"
+        backgroundImage="https://images.unsplash.com/photo-1427504494785-cdba58dadff0?w=1200&q=80"
+      />
 
       {/* Programs Section */}
       <div className="container mx-auto px-4 py-16">

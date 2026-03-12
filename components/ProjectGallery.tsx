@@ -147,7 +147,7 @@ export default function ProjectGallery({ lang }: ProjectGalleryProps) {
   ];
 
   return (
-    <section className="relative bg-white py-10 lg:py-15">
+    <section className="relative bg-white py-10 lg:py-20">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Title */}
         <div className="mb-16 text-center">
@@ -155,7 +155,9 @@ export default function ProjectGallery({ lang }: ProjectGalleryProps) {
               ref={titleRef}
               className="text-3xl font-bold text-accent sm:text-4xl lg:text-5xl underline-svg mb-5 text-center fade-in"
           >
-            {translate(translations, 'home.projects.title')}
+            <div className={'mb-4'}>
+              {translate(translations, 'home.projects.title')}
+            </div>
             <svg
                 viewBox="0 0 200 12"
                 xmlns="http://www.w3.org/2000/svg"

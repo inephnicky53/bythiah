@@ -6,11 +6,6 @@ import ScrollingHorizontalSection from '@/components/ScrollingHorizontalSection'
 import ScrollTop from '@/components/ScrollTop';
 import Partners from '@/components/Partners';
 
-// Lazy load des composants lourds pour optimiser les performances
-const Testimonials = dynamic(() => import('@/components/Testimonials'), {
-  loading: () => <div className="h-screen flex items-center justify-center">Chargement...</div>,
-});
-
 const ProjectGallery = dynamic(() => import('@/components/ProjectGallery'), {
   loading: () => <div className="h-screen flex items-center justify-center">Chargement...</div>,
 });
@@ -34,9 +29,6 @@ export default function HomePage({ params }: HomePageProps) {
 
       {/* Scrolling Horizontal Section - Pillars */}
       <ScrollingHorizontalSection lang={lang} />
-
-      {/* Testimonials Section */}
-      <Testimonials lang={lang} />
 
       {/* Project Gallery */}
       <ProjectGallery lang={lang} />
