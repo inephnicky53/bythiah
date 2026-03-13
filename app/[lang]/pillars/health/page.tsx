@@ -41,7 +41,7 @@ export default function HealthPage({params}: PillarPageProps) {
     return (
         <div className="min-h-screen bg-white">
             <PageHero
-                title={translate(translations, 'home.pillars.health')}
+                title={lang === 'fr' ? 'Améliorer la Santé pour Tous' : 'Improving Health for All'}
                 description={lang === 'fr'
                     ? "Améliorer la santé pour tous : une priorité pour le développement de la jeunesse."
                     : "Improving health for all: a priority for youth development."}

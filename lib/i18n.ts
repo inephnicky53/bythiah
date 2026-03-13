@@ -61,7 +61,7 @@ const home = {
                 "et les jeunes dans leur développement personnel et social. Nos actions visent à leur " +
                 "offrir des opportunités d’apprentissage, de protection et d’encadrement afin de leur " +
                 "permettre de réaliser pleinement leur potentiel et de devenir des acteurs du " +
-                "développement de leurs communautés."
+                "développement de leurs communautés.",
         },
         about: {
             title: 'Qui sommes-nous ?',

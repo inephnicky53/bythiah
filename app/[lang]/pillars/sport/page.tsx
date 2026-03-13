@@ -41,7 +41,7 @@ export default function SportPage({params}: PillarPageProps) {
     return (
         <div className="min-h-screen bg-white">
             <PageHero
-                title={translate(translations, 'home.pillars.sport')}
+                title={lang === 'fr' ? 'Le Sport : Levier d\'Excellence et d\'Intégration' : 'Sport: Lever of Excellence and Integration'}
                 description={lang === 'fr'
                     ? "Détecter les talents invisibles et cultiver l'excellence par les valeurs du sport."
                     : "Detecting invisible talents and cultivating excellence through sports values."}

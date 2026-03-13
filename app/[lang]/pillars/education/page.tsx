@@ -4,12 +4,8 @@ import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import PageHero from '@/components/PageHero';
 import { motion } from 'framer-motion';
 import {
-    GraduationCap,
-    BookOpen,
-    Users,
     CheckCircle,
     Quote,
-    ArrowRight,
     School,
     Lightbulb,
     HeartHandshake,
@@ -52,7 +48,7 @@ export default function EducationPage({ params }: PillarPageProps) {
     return (
         <div className="min-h-screen bg-white">
             <PageHero
-                title={translate(translations, 'home.pillars.education')}
+                title={lang === 'fr' ? 'Éducation pour tous' : 'Education for all'}
                 description={lang === 'fr'
                     ? "Bâtir l'avenir à travers l'éducation de base et l'excellence académique."
                     : "Building the future through basic education and academic excellence."}
