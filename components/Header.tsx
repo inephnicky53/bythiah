@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import LanguageSwitcher from './LanguageSwitcher';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface HeaderProps {
@@ -16,40 +16,19 @@ export default function Header({ lang }: HeaderProps) {
   const translations = getTranslations(lang);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [pillarsOpen, setPillarsOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const heroHeight =
-      typeof window !== 'undefined' ? window.innerHeight : 0;
-
-  const scrollProgress = Math.min(scrollY / (heroHeight * 0.7), 1);
-
-  const headerHeight = 70 + (30 * (1 - scrollProgress));
-  const logoHeight = 40 + (20 * (1 - scrollProgress));
-
-  const isOnHero = scrollY < heroHeight * 0.7;
 
   const navigation = [
     { name: translate(translations, 'nav.home'), href: `/${lang}` },
     { name: translate(translations, 'nav.about'), href: `/${lang}/about` },
-    {
-      name: translate(translations, 'nav.pillars'),
-      href: `/${lang}/pillars`,
-      items: [
-        { name: translate(translations, 'home.pillars.education'), href: `/${lang}/pillars/education` },
-        { name: translate(translations, 'home.pillars.health'), href: `/${lang}/pillars/health` },
-        { name: translate(translations, 'home.pillars.sport'), href: `/${lang}/pillars/sport` },
-      ]
-    },
+    { name: translate(translations, 'nav.pillars'), href: `/${lang}/pillars` },
     { name: translate(translations, 'nav.contact'), href: `/${lang}/contact` },
   ];
 
@@ -58,92 +37,79 @@ export default function Header({ lang }: HeaderProps) {
     return pathname?.startsWith(href);
   };
 
-  return (
-      <header
-          className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-              isOnHero
-                  ? 'bg-transparent'
-                  : 'bg-white/90 backdrop-blur border-b border-gray-200'
-          }`}
-          style={{ height: `${headerHeight}px` }}
-      >
-        <nav className="container mx-auto flex items-center justify-between px-4 h-full">
+  const textColor = scrolled ? 'text-gray-700' : 'text-white';
+  const bgColor = scrolled ? 'bg-white/95 backdrop-blur border-b border-gray-200' : 'bg-transparent';
 
+  return (
+      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${bgColor}`}>
+        <nav className="container mx-auto flex items-center justify-between px-4 py-4">
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center">
-            <img
-                src="/images/logo.png"
-                alt="The Bythiah Project"
-                className="w-auto transition-all duration-300"
-                style={{ height: `${logoHeight}px` }}
-            />
+          <Link href={`/${lang}`}>
+            <img src="/images/logo.png" alt="The Bythiah Project" className="h-12 w-auto" />
           </Link>
 
-          {/* Desktop menu */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-
             {navigation.map((item) => (
-                <div
+                <Link
                     key={item.href}
-                    className="relative"
-                    onMouseEnter={() => item.items && setPillarsOpen(true)}
-                    onMouseLeave={() => item.items && setPillarsOpen(false)}
+                    href={item.href}
+                    className={`text-sm font-medium transition-colors ${
+                        isActive(item.href) ? 'text-primary' : textColor
+                    }`}
                 >
-
-                  <Link
-                      href={item.href}
-                      className={`flex items-center space-x-1 text-sm font-medium ${
-                          isActive(item.href)
-                              ? 'text-primary'
-                              : isOnHero
-                                  ? 'text-white/90'
-                                  : 'text-gray-600'
-                      }`}
-                  >
-                    <span>{item.name}</span>
-                    {item.items && <ChevronDown size={14} />}
-                  </Link>
-
-                  {item.items && pillarsOpen && (
-                      <div className="absolute top-full left-0 mt-3 w-48 rounded-md bg-white shadow-lg">
-                        {item.items.map((subItem) => (
-                            <Link
-                                key={subItem.href}
-                                href={subItem.href}
-                                className="block px-4 py-2 text-sm hover:bg-gray-100"
-                            >
-                              {subItem.name}
-                            </Link>
-                        ))}
-                      </div>
-                  )}
-                </div>
+                  {item.name}
+                </Link>
             ))}
 
             <Link
                 href={`/${lang}/donate`}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${
-                    isOnHero
-                        ? 'bg-white/20 text-white hover:bg-white/30'
-                        : 'bg-primary text-white'
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    scrolled
+                        ? 'bg-primary text-white hover:bg-primary/90'
+                        : 'bg-white/20 text-white hover:bg-white/30'
                 }`}
             >
               {translate(translations, 'nav.donate')}
             </Link>
 
-            <LanguageSwitcher lang={lang} isOnHero={isOnHero} />
-
+            <LanguageSwitcher lang={lang} isOnHero={!scrolled} />
           </div>
 
           {/* Mobile button */}
           <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-white"
+              className={`md:hidden ${scrolled ? 'text-gray-700' : 'text-white'}`}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
         </nav>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+            <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+              <div className="px-4 py-4 space-y-2">
+                {navigation.map((item) => (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-2 text-base font-medium text-gray-800"
+                    >
+                      {item.name}
+                    </Link>
+                ))}
+
+                <Link
+                    href={`/${lang}/donate`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block mt-3 rounded-md bg-primary px-4 py-2 text-center text-white font-medium"
+                >
+                  {translate(translations, 'nav.donate')}
+                </Link>
+              </div>
+            </div>
+        )}
       </header>
   );
 }

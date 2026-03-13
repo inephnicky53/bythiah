@@ -10,11 +10,11 @@ interface PageHeroProps {
 }
 
 export default function PageHero({
-                                     title,
-                                     description,
-                                     color = '#7c572c',
-                                     backgroundImage
-                                 }: PageHeroProps) {
+    title,
+    description,
+    color = '#7c572c',
+    backgroundImage
+}: PageHeroProps) {
 
     const [loaded, setLoaded] = useState(false);
 
@@ -24,7 +24,7 @@ export default function PageHero({
 
     return (
         <section
-            className="relative w-full min-h-[80vh] flex items-center overflow-hidden"
+            className="relative w-full min-h-[60vh] flex items-center overflow-hidden"
             style={{ backgroundColor: color }}
         >
 
@@ -39,15 +39,14 @@ export default function PageHero({
                 </div>
             )}
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 relative z-10 pt-20">
 
                 <div
-                    className={`max-w-3xl transition-all duration-1000 ${
-                        loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
+                    className={`max-w-3xl transition-all duration-1000 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                        }`}
                 >
 
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {title}
                     </h1>
 
@@ -59,30 +58,35 @@ export default function PageHero({
 
             </div>
 
-            {/* SVG WAVES */}
+            {/* Waves */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
 
                 <svg
-                    viewBox="0 0 1200 120"
+                    viewBox="0 0 1200 200"
                     preserveAspectRatio="none"
-                    className="block w-screen h-[80px]"
+                    className="w-screen h-[110px]"
                 >
 
                     <path
-                        d="M0,90 C200,60 350,120 550,100 C750,80 900,40 1200,90 L1200,120 L0,120 Z"
+                        d="M0,120 C300,40 600,200 900,80 C1050,30 1150,70 1200,100 L1200,200 L0,200 Z"
                         fill="white"
-                        opacity="0.6"
-                    />
+                        opacity="0.5"
+                    >
+                        <animate
+                            attributeName="d"
+                            dur="8s"
+                            repeatCount="indefinite"
+                            values="
+              M0,120 C300,40 600,200 900,80 C1050,30 1150,70 1200,100 L1200,200 L0,200 Z;
+              M0,100 C300,180 600,40 900,120 C1050,160 1150,120 1200,90 L1200,200 L0,200 Z;
+              M0,120 C300,40 600,200 900,80 C1050,30 1150,70 1200,100 L1200,200 L0,200 Z"
+                        />
+                    </path>
 
                     <path
-                        d="M0,100 C250,60 450,120 700,90 C900,70 1050,80 1200,100 L1200,120 L0,120 Z"
+                        d="M0,150 C300,100 600,220 900,140 C1050,90 1150,130 1200,150 L1200,200 L0,200 Z"
                         fill="white"
                         opacity="0.8"
-                    />
-
-                    <path
-                        d="M0,110 C300,80 500,120 800,100 C1000,90 1100,100 1200,110 L1200,120 L0,120 Z"
-                        fill="white"
                     />
 
                 </svg>

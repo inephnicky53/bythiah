@@ -1,5 +1,9 @@
+'use client';
+
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import PageHero from '@/components/PageHero';
+import { motion } from 'framer-motion';
+import { Quote, History, ShieldCheck, GraduationCap, MapPin, Trophy } from 'lucide-react';
 
 interface AboutPageProps {
   params: {
@@ -11,202 +15,224 @@ export default function AboutPage({ params }: AboutPageProps) {
   const lang = params.lang as Locale;
   const translations = getTranslations(lang);
 
-  return (
-    <div className="min-h-screen bg-white">
-      <PageHero
-        title={translate(translations, 'nav.about')}
-        description={lang === 'fr'
-          ? 'Découvrez l\'histoire et la mission de The Bythiah Project.'
-          : 'Discover the story and mission of The Bythiah Project.'}
-        color="#7c572c"
-        backgroundImage="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&q=80"
-      />
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.7 }
+  };
 
-      {/* About Content */}
-      <div className="container mx-auto px-4 py-16">
-        {/* Organization Info */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-accent mb-6">
-            {lang === 'fr' ? 'Qui sommes-nous ?' : 'Who are we?'}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <p className="text-lg text-foreground/80 mb-4 leading-relaxed">
-                {translate(translations, 'home.about.description')}
-              </p>
-              <p className="text-lg text-foreground/80 mb-4 leading-relaxed">
-                {translate(translations, 'home.about.intervention')}
-              </p>
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                {lang === 'fr'
-                  ? 'Depuis notre création, nous avons touché des milliers de vies en RDC et au-delà. Notre approche holistique nous permet d\'adresser les besoins réels des communautés avec lesquelles nous travaillons.'
-                  : 'Since our creation, we have touched thousands of lives in DRC and beyond. Our holistic approach allows us to address the real needs of the communities we work with.'}
-              </p>
-            </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80"
-                alt="The Bythiah Project"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+  return (
+      <div className="min-h-screen bg-secondary/30">
+        <PageHero
+            title={translate(translations, 'nav.about')}
+            description={lang === 'fr'
+                ? "Chacun peut devenir une « Bithiah » et offrir une chance pour un avenir meilleur."
+                : "Everyone can become a 'Bythiah' and offer a chance for a better future."}
+            color="#433b1c" // Accent color
+            backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+        />
+
+        {/* 1. L'ORIGINE : Le Concept Biblique & Symbolique */}
+        <section className="py-20 bg-white overflow-hidden border-b border-secondary">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <motion.div {...fadeInUp} className="inline-block p-3 bg-secondary rounded-full text-primary mb-4">
+                <History size={32} />
+              </motion.div>
+              <motion.h2 {...fadeInUp} className="text-4xl font-bold text-accent mb-6">
+                {lang === 'fr' ? 'L’Origine du Nom' : 'The Origin of the Name'}
+              </motion.h2>
+              <motion.div {...fadeInUp} className="prose prose-lg mx-auto text-accent/80 leading-relaxed">
+                <p>
+                  {lang === 'fr'
+                      ? "The Bythiah Project (TBP) tire son nom de la princesse égyptienne Bithiah (« Fille de Dieu »), qui sauva Moïse des eaux du Nil. Cet acte d’humanité pure définit notre mission."
+                      : "The Bythiah Project (TBP) takes its name from the Egyptian princess Bithiah ('Daughter of God'), who saved Moses from the waters of the Nile. This act of pure humanity defines our mission."}
+                </p>
+                <blockquote className="text-primary font-semibold text-2xl mt-8 border-none italic">
+                  {lang === 'fr'
+                      ? "« The Bythiah Project, c’est nous… et ça peut être vous. »"
+                      : "« The Bythiah Project is us… and it can be you. »"}
+                </blockquote>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Founder Section */}
-        <div className="mb-16 bg-accent/5 p-8 rounded-2xl">
-          <h2 className="text-3xl font-bold text-accent mb-8 text-center">
-            {lang === 'fr' ? 'Notre Fondatrice' : 'Our Founder'}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            {/* Founder Image */}
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
-                alt="Mme Zalia Amour"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        {/* 2. LA FONDATRICE & LE MOT DE LA PRÉSIDENTE */}
+        <section className="py-20 bg-accent text-white">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="relative"
+              >
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden border-8 border-primary/20 shadow-2xl">
+                  <img
+                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                      alt="Mme Zalia Amour"
+                      className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-primary p-8 rounded-2xl shadow-xl hidden md:block">
+                  <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Expertise</p>
+                  <p className="text-xl font-bold text-white italic">MA Education (Phoenix, 2008)</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="space-y-6"
+              >
+                <h2 className="text-3xl font-bold text-primary">
+                  {lang === 'fr' ? 'Mot de la Présidente & Fondatrice' : 'Word from the President & Founder'}
+                </h2>
+                <div className="space-y-4 text-secondary/80 leading-relaxed">
+                  <div className="relative p-6 bg-primary/10 rounded-xl border-l-4 border-primary">
+                    <Quote className="absolute top-2 right-4 text-primary/20 w-12 h-12" />
+                    <p className="text-xl italic text-secondary relative z-10">
+                      {lang === 'fr'
+                          ? "« L’équité est le socle de l’existence de notre société. Il ne saurait y avoir de justice sociale si les individus sont discriminés en fonction de leur condition physique. »"
+                          : "« Equity is the foundation of our society's existence. There can be no social justice if individuals are discriminated against based on their physical condition. »"}
+                    </p>
+                  </div>
+                  <p>
+                    {lang === 'fr'
+                        ? "Notre engagement s’inscrit dans le respect de la Convention Internationale relative aux Droits de l’Enfant. Nous accordons une place particulière à l'encadrement des enfants vivant avec handicap ou souffrant de pathologies graves."
+                        : "Our commitment is rooted in respect for the International Convention on the Rights of the Child. We give special attention to mentoring children living with disabilities or suffering from serious pathologies."}
+                  </p>
+                  <p className="font-bold text-primary text-lg">— Mme Zalia Amour</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. TIMELINE HISTORIQUE */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-accent">{lang === 'fr' ? 'Notre Parcours' : 'Our Journey'}</h2>
+              <div className="h-1 w-20 bg-primary mx-auto mt-4 rounded-full" />
             </div>
 
-            {/* Founder Info */}
-            <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Mme Zalia Amour
-              </h3>
-              <p className="text-lg text-primary font-semibold mb-4">
-                {lang === 'fr' ? 'Fondatrice et Directrice Générale' : 'Founder and Executive Director'}
-              </p>
-              <p className="text-lg text-foreground/80 mb-4 leading-relaxed">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8">
+                {[
+                  {
+                    date: 'Septembre 1999',
+                    loc: 'Boston, USA',
+                    title: lang === 'fr' ? 'La Genèse' : 'The Genesis',
+                    desc: lang === 'fr' ? 'Rédaction du premier projet à Boston suite aux observations des failles éducatives en RDC.' : 'Writing of the first project in Boston following observations of educational failures in DRC.'
+                  },
+                  {
+                    date: '2009 - 2010',
+                    loc: 'Tshikapa, RDC',
+                    title: lang === 'fr' ? 'Installation en RDC' : 'Installation in DRC',
+                    desc: lang === 'fr' ? 'Visite marquante à Lungudi. Création officielle de l’ONG en 2010.' : 'Memorable visit to Lungudi. Official creation of the NGO in 2010.'
+                  },
+                  {
+                    date: '2012 - 2019',
+                    loc: 'Monrovia, Libéria',
+                    title: lang === 'fr' ? 'Expansion Ouest-Africaine' : 'West African Expansion',
+                    desc: lang === 'fr' ? 'Recherches sur les similitudes post-conflit. Relance du projet après l’épidémie d’Ebola.' : 'Research on post-conflict similarities. Project relaunch after the Ebola epidemic.'
+                  },
+                  {
+                    date: '9 Juin 2020',
+                    loc: 'Libéria',
+                    title: lang === 'fr' ? 'Accord de Siège' : 'Headquarters Agreement',
+                    desc: lang === 'fr' ? 'Signature officielle avec le gouvernement libérien malgré les défis de la COVID-19.' : 'Official signature with the Liberian government despite COVID-19 challenges.'
+                  }
+                ].map((item, index) => (
+                    <motion.div
+                        key={index}
+                        {...fadeInUp}
+                        className="flex gap-6 p-6 rounded-2xl border border-secondary bg-secondary/10 hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all group"
+                    >
+                      <div className="shrink-0 w-14 h-14 bg-primary rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <MapPin size={24} />
+                      </div>
+                      <div>
+                        <span className="text-sm font-bold text-primary uppercase">{item.date}</span>
+                        <h3 className="text-xl font-bold text-accent mt-1">{item.title}</h3>
+                        <p className="text-accent/70 mt-2 leading-relaxed text-sm">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. VUE D'ENSEMBLE & ENGAGEMENT */}
+        <section className="py-20 bg-secondary/40 border-y border-secondary">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-12 items-center">
+              <div className="lg:col-span-2 space-y-8">
+                <h2 className="text-3xl font-bold text-accent">{lang === 'fr' ? 'Vue d’ensemble des défis' : 'Overview of Challenges'}</h2>
+                <p className="text-lg text-accent/80 leading-relaxed">
+                  {lang === 'fr'
+                      ? "De la RDC au Libéria, les crises sociales ont laissé des cicatrices profondes. Des enfants sans abri à l'Est de la RDC aux générations privées d'école après la guerre civile au Libéria, l'urgence d'agir reste absolue."
+                      : "From DRC to Liberia, social crises have left deep scars. From homeless children in Eastern DRC to generations deprived of school after the Liberian civil war, the urgency to act remains absolute."}
+                </p>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    { icon: <GraduationCap />, title: lang === 'fr' ? 'Éducation' : 'Education' },
+                    { icon: <ShieldCheck />, title: lang === 'fr' ? 'Santé' : 'Health' },
+                    { icon: <Trophy />, title: lang === 'fr' ? 'Sport' : 'Sport' }
+                  ].map((item, i) => (
+                      <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-secondary flex flex-col items-center text-center">
+                        <div className="text-primary mb-3">{item.icon}</div>
+                        <h4 className="font-bold text-accent">{item.title}</h4>
+                      </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-primary rounded-3xl p-8 text-white flex flex-col justify-center relative overflow-hidden shadow-2xl shadow-primary/20">
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold mb-4">{lang === 'fr' ? 'Changer une vie' : 'Changing a life'}</h3>
+                  <p className="text-secondary opacity-90 italic">
+                    {lang === 'fr'
+                        ? "« Notre objectif est clair : contribuer au développement du pays en identifiant les enfants dans le besoin pour leur permettre d'atteindre l'excellence. »"
+                        : "« Our goal is clear: contribute to the country's development by identifying children in need to allow them to reach excellence. »"}
+                  </p>
+                </div>
+                <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-accent/10 rounded-full" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. CTA SECTION */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                className="max-w-4xl mx-auto bg-accent rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-primary" />
+              <h2 className="text-3xl font-bold mb-6">
+                {lang === 'fr' ? 'Devenez une Bithiah aujourd’hui' : 'Become a Bythiah Today'}
+              </h2>
+              <p className="text-secondary/70 mb-10 text-lg max-w-2xl mx-auto">
                 {lang === 'fr'
-                  ? 'Mme Zalia Amour est la fondatrice et directrice générale de The Bythiah Project. Avec plus d\'une décennie d\'expérience dans le secteur du développement communautaire, elle a consacré sa vie à transformer les vies des enfants et des jeunes vulnérables.'
-                  : 'Mme Zalia Amour is the founder and executive director of The Bythiah Project. With over a decade of experience in the community development sector, she has dedicated her life to transforming the lives of vulnerable children and youth.'}
+                    ? "Chaque geste compte pour offrir un avenir à un enfant vulnérable. Ensemble, transformons ces vies."
+                    : "Every gesture counts to offer a future to a vulnerable child. Together, let's transform these lives."}
               </p>
-              <p className="text-lg text-foreground/80 mb-4 leading-relaxed">
-                {lang === 'fr'
-                  ? 'Son vision est de créer un monde où chaque enfant, indépendamment de son origine ou de sa condition, a accès à une éducation de qualité, à des soins de santé adéquats et à des opportunités de développement personnel. Sous sa direction, The Bythiah Project a grandi pour devenir l\'une des organisations les plus respectées dans le secteur du développement en RDC.'
-                  : 'Her vision is to create a world where every child, regardless of their origin or condition, has access to quality education, adequate healthcare, and personal development opportunities. Under her leadership, The Bythiah Project has grown to become one of the most respected organizations in the development sector in DRC.'}
-              </p>
-              <div className="flex space-x-4">
-                <a href="mailto:zalia@bythiah.org" className="text-primary hover:text-primary/80 font-semibold">
-                  {lang === 'fr' ? 'Contacter' : 'Contact'}
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <a href={`/${lang}/contact`} className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-12 rounded-full transition-all shadow-lg hover:shadow-primary/20">
+                  {lang === 'fr' ? 'Nous soutenir' : 'Support Us'}
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-
-        {/* Values Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-accent mb-8 text-center">
-            {lang === 'fr' ? 'Nos Valeurs' : 'Our Values'}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: lang === 'fr' ? 'Intégrité' : 'Integrity',
-                description: lang === 'fr'
-                  ? 'Nous agissons avec honnêteté et transparence dans toutes nos actions.'
-                  : 'We act with honesty and transparency in all our actions.',
-              },
-              {
-                title: lang === 'fr' ? 'Compassion' : 'Compassion',
-                description: lang === 'fr'
-                  ? 'Nous nous soucions profondément du bien-être de ceux que nous servons.'
-                  : 'We deeply care about the well-being of those we serve.',
-              },
-              {
-                title: lang === 'fr' ? 'Excellence' : 'Excellence',
-                description: lang === 'fr'
-                  ? 'Nous nous efforçons d\'atteindre les plus hauts standards dans tout ce que nous faisons.'
-                  : 'We strive to achieve the highest standards in everything we do.',
-              },
-            ].map((value, index) => (
-              <div key={index} className="bg-white border border-border rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-accent mb-3">{value.title}</h3>
-                <p className="text-foreground/80">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Timeline Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-accent mb-8 text-center">
-            {lang === 'fr' ? 'Notre Parcours' : 'Our Journey'}
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                year: '2010',
-                title: lang === 'fr' ? 'Fondation' : 'Foundation',
-                description: lang === 'fr'
-                  ? 'The Bythiah Project est créée avec une vision claire de transformer les vies.'
-                  : 'The Bythiah Project is founded with a clear vision to transform lives.',
-              },
-              {
-                year: '2015',
-                title: lang === 'fr' ? 'Expansion' : 'Expansion',
-                description: lang === 'fr'
-                  ? 'Nous avons étendu nos programmes à plusieurs provinces de la RDC.'
-                  : 'We expanded our programs to several provinces in DRC.',
-              },
-              {
-                year: '2020',
-                title: lang === 'fr' ? 'Reconnaissance' : 'Recognition',
-                description: lang === 'fr'
-                  ? 'The Bythiah Project reçoit plusieurs prix pour son impact communautaire.'
-                  : 'The Bythiah Project receives several awards for its community impact.',
-              },
-              {
-                year: '2024',
-                title: lang === 'fr' ? 'Aujourd\'hui' : 'Today',
-                description: lang === 'fr'
-                  ? 'Nous continuons à grandir et à servir des milliers de personnes chaque année.'
-                  : 'We continue to grow and serve thousands of people every year.',
-              },
-            ].map((item, index) => (
-              <div key={index} className="flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
-                    {index + 1}
-                  </div>
-                  {index < 3 && <div className="w-1 h-16 bg-primary/30 mt-2" />}
-                </div>
-                <div className="pb-6">
-                  <h3 className="text-xl font-bold text-accent">{item.year} - {item.title}</h3>
-                  <p className="text-foreground/80 mt-2">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        </section>
       </div>
-
-      {/* CTA Section */}
-      <div className="bg-accent py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            {lang === 'fr'
-              ? 'Rejoignez-nous dans notre mission'
-              : 'Join us in our mission'}
-          </h2>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            {lang === 'fr'
-              ? 'Ensemble, nous pouvons créer un impact durable et transformer des vies.'
-              : 'Together, we can create lasting impact and transform lives.'}
-          </p>
-          <a
-            href={`/${lang}/contact`}
-            className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-lg transition-colors"
-          >
-            {lang === 'fr' ? 'Nous Contacter' : 'Contact Us'}
-          </a>
-        </div>
-      </div>
-    </div>
   );
 }
