@@ -27,7 +27,7 @@ export default function AboutPage({ params }: AboutPageProps) {
         <PageHero
             title={translate(translations, 'nav.about')}
             description={lang === 'fr'
-                ? "Chacun peut devenir une « Bithiah » et offrir une chance pour un avenir meilleur."
+                ? "Chacun peut devenir une « Bythiah » et offrir une chance pour un avenir meilleur."
                 : "Everyone can become a 'Bythiah' and offer a chance for a better future."}
             color="#433b1c" // Accent color
             backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"

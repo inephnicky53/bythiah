@@ -26,7 +26,7 @@ export default function Footer({ lang }: FooterProps) {
             />
             <p className="text-sm text-accent-foreground/80">
               {lang === 'fr'
-                ? 'Une organisation dédiée à transformer des vies à travers l\'éducation, la santé et le développement communautaire.'
+                ? 'Une organisation dédiée à transformer des vies à travers l\'éducation, la santé et le sport.'
                 : 'An organization dedicated to transforming lives through education, health, and community development.'}
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function Footer({ lang }: FooterProps) {
             <h3 className="mb-4 text-lg font-semibold">{translate(translations, 'footer.followUs')}</h3>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/bythiahproject"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/80 transition-colors hover:text-primary"
@@ -107,7 +107,7 @@ export default function Footer({ lang }: FooterProps) {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/BythiahProject"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/80 transition-colors hover:text-primary"
@@ -116,7 +116,7 @@ export default function Footer({ lang }: FooterProps) {
                 <Twitter size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thebythiahproject"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/80 transition-colors hover:text-primary"
@@ -125,7 +125,7 @@ export default function Footer({ lang }: FooterProps) {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/posts/the-bythiah-project-tbp_apr%C3%A8s-avoir-travers%C3%A9-les-365-jours-de-2025-activity-7412470791646146560-4qp1/?rcm=ACoAADmZ15QBUItN4Uxozq76FrR45JyUczbQQkU"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-foreground/80 transition-colors hover:text-primary"

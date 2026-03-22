@@ -207,7 +207,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                                             </defs>
                                         </svg>
                                     </h2>
-                                    <div className="space-y-4 text-base sm:text-lg text-gray-700">
+                                    <div className="space-y-4 text-base text-justify sm:text-lg text-gray-700">
                                         {Array.isArray(section.content) ? (
                                             section.content.map((paragraph, idx) => (
                                                 paragraph && (

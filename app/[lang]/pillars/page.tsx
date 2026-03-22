@@ -56,8 +56,8 @@ export default function PillarsPage({ params }: PillarsPageProps) {
             </motion.h2>
             <motion.p {...fadeInUp} className="text-lg text-accent/80 leading-relaxed mb-12">
               {lang === 'fr'
-                  ? "Les actions de The Bythiah Project reposent sur des fondations solides. Ces trois domaines constituent des leviers essentiels pour favoriser le développement des enfants et des jeunes, tout en contribuant à la construction d’une société plus juste et équilibrée."
-                  : "The Bythiah Project's actions are built on solid foundations. These three areas are essential levers for promoting the development of children and young people, while contributing to the building of a fairer and more balanced society."}
+                  ? "Les actions menées par The Bythiah Project reposent sur des fondations solides. Ces trois secteurs constituent des leviers essentiels pour favoriser le développement des enfants et des jeunes, tout en contribuant à la construction d’une société plus juste et équilibrée."
+                  : "The actions undertaken by The Bythiah Project are based on solid foundations. These three areas are essential levers for promoting the development of children and young people, while contributing to the building of a fairer and more balanced society."}
             </motion.p>
 
             {/* QUICK NAVIGATION BUTTONS */}
@@ -99,7 +99,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
                   </p>
                   <cite className="block mt-2 font-bold not-italic">— Nelson Mandela</cite>
                 </div>
-                <p className="text-accent/70 leading-relaxed">
+                <p className="text-accent/70 leading-relaxed text-justify">
                   {lang === 'fr'
                       ? "Notre vision est de bâtir l’avenir à travers l’éducation de base. Nous accompagnons les jeunes dont la situation sociale les empêche de poursuivre leurs études pour combattre l’ignorance, la corruption et le tribalisme."
                       : "Our vision is to build the future through basic education. We support young people whose social situation prevents them from pursuing their studies to combat ignorance, corruption, and tribalism."}
@@ -149,7 +149,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
                 <h2 className="text-4xl font-bold text-primary">
                   {lang === 'fr' ? 'Améliorer la Santé pour Tous' : 'Improving Health for All'}
                 </h2>
-                <p className="text-secondary/80 leading-relaxed">
+                <p className="text-secondary/80 leading-relaxed text-justify">
                   {lang === 'fr'
                       ? "Nous accordons une attention particulière à la promotion de la santé en milieu scolaire. La prévention et le diagnostic précoce sont nos priorités pour éviter des conséquences irréversibles."
                       : "We pay special attention to health promotion in schools. Prevention and early diagnosis are our priorities to avoid irreversible consequences."}
@@ -189,10 +189,10 @@ export default function PillarsPage({ params }: PillarsPageProps) {
                 <h2 className="text-4xl font-bold text-accent italic">
                   {lang === 'fr' ? 'Le Sport : Levier d’Excellence' : 'Sport: Lever of Excellence'}
                 </h2>
-                <p className="text-accent/70 leading-relaxed">
+                <p className="text-accent/70 leading-relaxed text-justify">
                   {lang === 'fr'
-                      ? "Le sport rassemble autour de valeurs : esprit d’équipe, discipline et solidarité. À travers la Bythiah Sport Association (TBSA), nous détectons les talents invisibles."
-                      : "Sport brings people together around values: teamwork, discipline, and solidarity. Through the Bythiah Sport Association (TBSA), we detect invisible talents."}
+                      ? "Le sport rassemble autour de valeurs : esprit d’équipe, discipline et solidarité. À travers The Bythiah Sport Association (TBSA), nous détectons les talents invisibles."
+                      : "Sport brings people together around values: teamwork, discipline, and solidarity. Through The Bythiah Sport Association (TBSA), we detect invisible talents."}
                 </p>
 
                 {/* Programme DFV */}
@@ -247,7 +247,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
           <div className="container mx-auto px-4 text-center">
             <motion.div {...fadeInUp} className="max-w-3xl mx-auto space-y-8">
               <h2 className="text-4xl font-bold text-accent">
-                {lang === 'fr' ? 'Prêt à devenir une Bithiah ?' : 'Ready to become a Bythiah?'}
+                {lang === 'fr' ? 'Prêt à devenir une Bythiah ?' : 'Ready to become a Bythiah?'}
               </h2>
               <p className="text-lg text-accent/70">
                 {lang === 'fr'

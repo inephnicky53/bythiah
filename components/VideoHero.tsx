@@ -56,7 +56,7 @@ export default function VideoHero({lang}: VideoHeroProps) {
                         </span>
                     </h1>
 
-                    <p className="max-w-4xl text-base text-white/90 sm:text-2xl lg:text-3xl xl:text-4xl leading-relaxed">
+                    <p className="max-w-4xl text-base italic text-white/90 sm:text-2xl lg:text-3xl xl:text-4xl leading-relaxed">
                         {translate(translations, 'home.hero.subtitle')}
                     </p>
 

@@ -20,8 +20,8 @@ export default function ContactPage({params}: ContactPageProps) {
         {
             icon: <Mail className="w-6 h-6"/>,
             title: 'Email',
-            value: 'info@bythiah.org',
-            href: 'mailto:info@bythiah.org',
+            value: 'contact@bythiah.org',
+            href: 'mailto:contact@bythiah.org',
         },
         {
             icon: <Phone className="w-6 h-6"/>,
@@ -71,7 +71,7 @@ export default function ContactPage({params}: ContactPageProps) {
                                 <h2 className="text-4xl font-bold text-accent mb-6">
                                     {lang === 'fr' ? "Parlons ensemble" : "Let's Talk"}
                                 </h2>
-                                <p className="text-lg text-accent/70 leading-relaxed">
+                                <p className="text-lg text-accent/70 leading-relaxed text-justify">
                                     {lang === 'fr'
                                         ? "Que vous soyez un futur partenaire, un donateur ou une personne ayant besoin d'assistance, notre équipe vous répondra dans les plus brefs délais."
                                         : "Whether you are a future partner, a donor, or someone in need of assistance, our team will get back to you as soon as possible."}
@@ -205,10 +205,10 @@ export default function ContactPage({params}: ContactPageProps) {
                     <div className="flex gap-4">
                         {/* Remplacez par vos vrais liens */}
                         {['Facebook', 'LinkedIn', 'Twitter'].map((social) => (
-                            <button key={social}
+                            <a href={`https://www.${social.toLowerCase()}.com/thebythiahproject`} key={social}
                                     className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full border border-white/20 transition-all">
                                 {social}
-                            </button>
+                            </a>
                         ))}
                     </div>
                 </div>

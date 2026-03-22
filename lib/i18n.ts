@@ -34,18 +34,18 @@ const home = {
     fr: {
         hero: {
             title: 'The Bythiah Project',
-            subtitle: 'Agir ensemble pour le bien-être universel',
+            subtitle: 'Agir Ensemble pour le Bien-Être Universel',
             cta: 'Découvrir notre mission',
         },
         intro: {
-            title: 'Agir ensemble pour le bien-être universel',
-            description: "Organisation non gouvernementale à caractère philanthropique, The Bythiah Project œuvre dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo et dans plusieurs autres pays. À travers ses actions et ses programmes, l’organisation s’engage à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
+            title: 'Agir Ensemble pour le Bien-Être Universel',
+            description: "Organisation Non-Gouvernementale (ONG) à caractère philanthropique, The Bythiah Project œuvre dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo et dans plusieurs autres pays. À travers ses actions et ses programmes, l’organisation s’engage à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
             since: "Depuis plus d’une décennie, l’organisation agit pour l’assistance à l’enfance et à la jeunesse, en particulier auprès des populations les plus vulnérables. À travers des initiatives éducatives, sanitaires et sportives, The Bythiah Project accompagne les enfants et les jeunes afin de leur offrir des opportunités d’apprentissage, d’encadrement et d’épanouissement.\n",
             commitment: "Notre engagement est de créer un impact durable dans les communautés qui en ont le plus besoin, en apportant soutien, espoir et dignité aux personnes les plus fragiles. En investissant dans la jeunesse et en valorisant leur potentiel, nous contribuons à construire un avenir plus prometteur pour les générations futures."
 
         },
         pillars: {
-            title: 'Nos piliers d\'action',
+            title: 'Nos Piliers d\'Action',
             priority: "Les actions de The Bythiah Project reposent sur trois piliers fondamentaux qui " +
                 "guident l’ensemble de nos programmes et initiatives : l’Éducation, la Santé et le " +
                 "Sport. Ces domaines représentent des leviers essentiels pour favoriser le " +
@@ -64,8 +64,8 @@ const home = {
                 "développement de leurs communautés.",
         },
         about: {
-            title: 'Qui sommes-nous ?',
-            description: "The Bythiah Project est une organisation non gouvernementale créée en 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animée par des valeurs de solidarité, d’équité et de responsabilité sociale, l’organisation œuvre pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
+            title: 'Qui Sommes-Nous ?',
+            description: "Nous sommes une Organisation Non-Gouvernementale (ONG) créée en 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animée par des valeurs de solidarité, d’équité et de responsabilité sociale, l’organisation œuvre pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
             intervention: "Nos actions s’articulent principalement autour de trois domaines essentiels : l’éducation, la santé et le sport, conformément au décret ministériel n°011/CAB/ME/J & GS/2018. À travers ces piliers, nous développons des initiatives visant à accompagner les enfants et les jeunes dans leur épanouissement personnel, leur formation et leur intégration au sein de la société.\n",
             journey: "Depuis notre création, The Bythiah Project a impacté la vie de milliers de personnes en République Démocratique du Congo et au-delà. Notre approche holistique nous permet de répondre aux besoins réels des communautés avec lesquelles nous travaillons, en mettant l’accent sur des solutions durables qui contribuent au développement humain et social.",
         },

@@ -146,7 +146,7 @@ export default function ScrollingHorizontalSection({ lang }: ScrollingHorizontal
             <h2 className="text-2xl font-bold text-white sm:text-4xl lg:text-5xl underline-svg mb-6 md:mb-10 text-center">
               {translate(translations, 'home.pillars.title')}
             </h2>
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 text-justify">
               {/* Content */}
               <div className="">
                 <p className="text-base md:text-lg text-white/90 leading-relaxed">

@@ -56,7 +56,7 @@ export default function SportPage({params}: PillarPageProps) {
                         <div
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-white font-bold text-sm uppercase mb-6 tracking-widest">
                             <Trophy size={18} className="text-primary"/>
-                            Bythiah Sport Association (TBSA)
+                            The Bythiah Sport Association (TBSA)
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
                             {lang === 'fr'
