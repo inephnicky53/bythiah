@@ -39,14 +39,14 @@ const home = {
         },
         intro: {
             title: 'Agir Ensemble pour le Bien-Être Universel',
-            description: "Organisation Non-Gouvernementale (ONG) à caractère philanthropique, The Bythiah Project œuvre dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo et dans plusieurs autres pays. À travers ses actions et ses programmes, l’organisation s’engage à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
-            since: "Depuis plus d’une décennie, l’organisation agit pour l’assistance à l’enfance et à la jeunesse, en particulier auprès des populations les plus vulnérables. À travers des initiatives éducatives, sanitaires et sportives, The Bythiah Project accompagne les enfants et les jeunes afin de leur offrir des opportunités d’apprentissage, d’encadrement et d’épanouissement.\n",
+            description: "Nous sommes The Bythiah Project (TBP), une organisation non gouvernementale (ONG) à caractère philanthropique. Nous œuvrons dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo et dans plusieurs autres pays. À travers nos actions et nos programmes, nous nous engageons à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
+            since: "Depuis plus d’une décennie, nous agissons pour l’assistance à l’enfance et à la jeunesse, en particulier auprès des populations les plus vulnérables. À travers des initiatives éducatives, sanitaires et sportives, nous accompagnons les enfants et les jeunes afin de leur offrir des opportunités d’apprentissage des métiers, d’encadrement et d’épanouissement.\n",
             commitment: "Notre engagement est de créer un impact durable dans les communautés qui en ont le plus besoin, en apportant soutien, espoir et dignité aux personnes les plus fragiles. En investissant dans la jeunesse et en valorisant leur potentiel, nous contribuons à construire un avenir plus prometteur pour les générations futures."
 
         },
         pillars: {
             title: 'Nos Piliers d\'Action',
-            priority: "Les actions de The Bythiah Project reposent sur trois piliers fondamentaux qui " +
+            priority: "Nos actions reposent sur trois piliers fondamentaux qui " +
                 "guident l’ensemble de nos programmes et initiatives : l’Éducation, la Santé et le " +
                 "Sport. Ces domaines représentent des leviers essentiels pour favoriser le " +
                 "développement des enfants et des jeunes, tout en contribuant à la construction d’une " +
@@ -57,7 +57,7 @@ const home = {
                 "nécessaires à la construction d’un avenir durable, la santé garantit le bien-être " +
                 "physique et mental, tandis que le sport contribue à l’apprentissage de la " +
                 "discipline, de l’esprit d’équipe et du respect.",
-            with: "À travers ces trois piliers, The Bythiah Project s’engage à accompagner les enfants " +
+            with: "À travers ces trois piliers, nous nous engageons à accompagner les enfants " +
                 "et les jeunes dans leur développement personnel et social. Nos actions visent à leur " +
                 "offrir des opportunités d’apprentissage, de protection et d’encadrement afin de leur " +
                 "permettre de réaliser pleinement leur potentiel et de devenir des acteurs du " +
@@ -65,19 +65,19 @@ const home = {
         },
         about: {
             title: 'Qui Sommes-Nous ?',
-            description: "Nous sommes une Organisation Non-Gouvernementale (ONG) créée en 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animée par des valeurs de solidarité, d’équité et de responsabilité sociale, l’organisation œuvre pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
+            description: "Nous sommes une Organisation Non-Gouvernementale (ONG) créée en Juillet 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animés par des valeurs de solidarité, d’équité et de responsabilité sociale, nous œuvrons pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
             intervention: "Nos actions s’articulent principalement autour de trois domaines essentiels : l’éducation, la santé et le sport, conformément au décret ministériel n°011/CAB/ME/J & GS/2018. À travers ces piliers, nous développons des initiatives visant à accompagner les enfants et les jeunes dans leur épanouissement personnel, leur formation et leur intégration au sein de la société.\n",
-            journey: "Depuis notre création, The Bythiah Project a impacté la vie de milliers de personnes en République Démocratique du Congo et au-delà. Notre approche holistique nous permet de répondre aux besoins réels des communautés avec lesquelles nous travaillons, en mettant l’accent sur des solutions durables qui contribuent au développement humain et social.",
+            journey: "Depuis notre création, nous avons impacté la vie de milliers de personnes en République Démocratique du Congo et au-delà. Notre approche holistique nous permet de répondre aux besoins réels des communautés avec lesquelles nous travaillons, en mettant l’accent sur des solutions durables qui contribuent au développement humain et social.",
         },
         vocation: {
             title: 'Notre vocation',
             description: "Notre vocation première est l’assistance aux personnes vulnérables et souvent stigmatisées, notamment celles affectées par le VIH/SIDA, la drépanocytose, l’épilepsie ou vivant avec un handicap. À travers nos actions, nous cherchons à améliorer leurs conditions de vie et à leur offrir des opportunités d’épanouissement au sein de la société.\n",
-            support: "Au-delà de l’aide matérielle, The Bythiah Project s’engage à apporter un accompagnement moral et psychologique afin de restaurer la dignité, la confiance et l’espérance des personnes que nous accompagnons. Nous croyons que chaque individu mérite d’être soutenu et valorisé, quelles que soient les difficultés auxquelles il est confronté.\n",
+            support: "Au-delà de l’aide matérielle, nous nous engageons à apporter un accompagnement moral et psychologique afin de restaurer la dignité, la confiance et l’espérance des personnes que nous accompagnons. Nous croyons que chaque individu mérite d’être soutenu et valorisé, quelles que soient les difficultés auxquelles il est confronté.\n",
             work: "Pour atteindre cet objectif, nous travaillons en collaboration étroite avec les familles, les écoles et les centres de santé, afin de créer un environnement solidaire et inclusif où chaque personne, quelle que soit sa condition, peut vivre dans la dignité et nourrir l’espoir d’un avenir meilleur."
         },
         mission: {
             title: 'Notre mission',
-            description: 'La mission de The Bythiah Project est de soutenir les enfants et les jeunes démunis, en particulier ceux qui vivent dans des situations de grande vulnérabilité. Nous accordons une attention particulière à :',
+            description: 'Notre mission est de soutenir les enfants et les jeunes démunis, en particulier ceux qui vivent dans des situations de grande vulnérabilité. Nous accordons une attention particulière à :',
             targets: [
                 'les orphelins',
                 'les drépanocytaires',
@@ -86,7 +86,7 @@ const home = {
                 'les enfants et jeunes vivant avec handicap',
             ],
             goal: "À travers nos programmes et initiatives, nous cherchons à améliorer leurs conditions de vie, à favoriser leur accès à l’éducation, aux soins de santé et à un environnement propice à leur épanouissement.",
-            mindset: "Nous sommes convaincus que chaque enfant mérite une chance de réussir. C’est pourquoi notre mission consiste à leur offrir les outils, le soutien et l’accompagnement nécessaires afin qu’ils puissent développer leur potentiel et construire un avenir meilleur."
+            mindset: "Nous sommes convaincus que chaque enfant mérite une chance de réussir. C’est pourquoi nous leur offrons les outils, le soutien et l’accompagnement nécessaires afin qu’ils puissent développer leur potentiel et construire un avenir meilleur."
         },
         vision: {
             title: 'Notre vision',
@@ -123,7 +123,7 @@ const home = {
         },
         about: {
             title: "Who are we?",
-            description: "The Bythiah Project is a non-governmental organization created in 2010, committed to the sustainable improvement of the living conditions of children and young people. Driven by values of solidarity, equity, and social responsibility, the organization works to offer better prospects to the most vulnerable populations.\n",
+            description: "The Bythiah Project is a non-governmental organization created in July 2010, committed to the sustainable improvement of the living conditions of children and young people. Driven by values of solidarity, equity, and social responsibility, the organization works to offer better prospects to the most vulnerable populations.\n",
             intervention: "Our actions are mainly structured around three essential areas: education, health, and sports, in accordance with ministerial decree No. 011/CAB/ME/J & GS/2018. Through these pillars, we develop initiatives aimed at supporting children and youth in their personal growth, education, and integration into society.\n",
             journey: "Since its creation, The Bythiah Project has impacted the lives of thousands of people in the Democratic Republic of Congo and beyond. Our holistic approach allows us to address the real needs of the communities we work with, focusing on sustainable solutions that contribute to human and social development."
         },
@@ -201,12 +201,12 @@ const pages = {
         },
         about: {
             title: 'À propos',
-            subtitle: 'Découvrez l\'histoire et la mission de The Bythiah Project.',
+            subtitle: 'Découvrez notre histoire et notre mission au sein de The Bythiah Project (TBP).',
             whoWeAre: 'Qui sommes-nous ?',
             ourFounder: 'Notre Fondatrice',
             founderRole: 'Fondatrice et Directrice Générale',
             founderBio1: 'Mme Zalia Amour est la fondatrice et directrice générale de The Bythiah Project. Avec plus d\'une décennie d\'expérience dans le secteur du développement communautaire, elle a consacré sa vie à transformer les vies des enfants et des jeunes vulnérables.',
-            founderBio2: 'Son vision est de créer un monde où chaque enfant, indépendamment de son origine ou de sa condition, a accès à une éducation de qualité, à des soins de santé adéquats et à des opportunités de développement personnel. Sous sa direction, The Bythiah Project a grandi pour devenir l\'une des organisations les plus respectées dans le secteur du développement en RDC.',
+            founderBio2: 'Sa vision est de créer un monde où chaque enfant, indépendamment de son origine ou de sa condition, a accès à une éducation de qualité, à des soins de santé adéquats et à des opportunités de développement personnel. Sous sa direction, The Bythiah Project a grandi pour devenir l\'une des organisations les plus respectées dans le secteur du développement en RDC.',
             contact: 'Contacter',
             ourValues: 'Nos Valeurs',
             integrity: 'Intégrité',

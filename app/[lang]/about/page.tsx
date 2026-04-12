@@ -46,7 +46,7 @@ export default function AboutPage({ params }: AboutPageProps) {
               <motion.div {...fadeInUp} className="prose prose-lg mx-auto text-accent/80 leading-relaxed">
                 <p>
                   {lang === 'fr'
-                      ? "The Bythiah Project (TBP) tire son nom de la princesse égyptienne Bithiah (« Fille de Dieu »), qui sauva Moïse des eaux du Nil. Cet acte d’humanité pure définit notre mission."
+                      ? "Nous avons choisi le nom The Bythiah Project (TBP) en hommage à la princesse égyptienne Bithiah (« Fille de Dieu »), qui sauva Moïse des eaux du Nil. Cet acte d’humanité pure définit notre mission."
                       : "The Bythiah Project (TBP) takes its name from the Egyptian princess Bithiah ('Daughter of God'), who saved Moses from the waters of the Nile. This act of pure humanity defines our mission."}
                 </p>
                 <blockquote className="text-primary font-semibold text-2xl mt-8 border-none italic">
