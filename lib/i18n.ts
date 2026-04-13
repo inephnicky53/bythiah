@@ -15,6 +15,10 @@ const nav = {
         home: 'Accueil',
         about: 'À propos',
         pillars: 'Nos piliers',
+        pillarsOverview: 'Vue d’ensemble',
+        pillarEducation: 'Éducation',
+        pillarHealth: 'Santé',
+        pillarSport: 'Sport',
         contact: 'Contact',
         donate: 'Faire un don',
         links: "Liens rapides"
@@ -23,6 +27,10 @@ const nav = {
         home: 'Home',
         about: 'About',
         pillars: 'Our pillars',
+        pillarsOverview: 'Overview',
+        pillarEducation: 'Education',
+        pillarHealth: 'Health',
+        pillarSport: 'Sport',
         contact: 'Contact',
         donate: 'Donate',
         links: "Quick links"
@@ -46,6 +54,9 @@ const home = {
         },
         pillars: {
             title: 'Nos Piliers d\'Action',
+            education: 'Éducation',
+            health: 'Santé',
+            sport: 'Sport',
             priority: "Nos actions reposent sur trois piliers fondamentaux qui " +
                 "guident l’ensemble de nos programmes et initiatives : l’Éducation, la Santé et le " +
                 "Sport. Ces domaines représentent des leviers essentiels pour favoriser le " +
@@ -117,6 +128,9 @@ const home = {
         },
         pillars: {
             title: "Our pillars of action",
+            education: "Education",
+            health: "Health",
+            sport: "Sport",
             priority: "The actions of The Bythiah Project are based on three fundamental pillars that guide all of our programs and initiatives: Education, Health, and Sports. These areas represent essential levers to foster the development of children and youth while contributing to the building of a more just, balanced, and supportive society.",
             description: "We believe that the future of a society depends on the ability of its youth to learn, grow, and thrive in a supportive environment. Education helps transmit the knowledge and values necessary for building a sustainable future, health ensures physical and mental well-being, while sports contribute to learning discipline, teamwork, and respect.",
             with: "Through these three pillars, The Bythiah Project is committed to supporting children and young people in their personal and social development. Our actions aim to offer them opportunities for learning, protection, and guidance so they can fully realize their potential and become actors in the development of their communities."
@@ -362,3 +376,51 @@ export function t(
 export function isValidLocale(locale: string): locale is Locale {
     return locales.includes(locale as Locale);
 }
+
+/** Public site URL for metadata, sitemap, and robots (override with NEXT_PUBLIC_SITE_URL). */
+export const defaultSiteUrl = 'https://bythiah.org';
+
+/** Locale-specific default SEO copy for layout metadata. */
+export const localeSeo: Record<
+    Locale,
+    { description: string; keywords: string[]; defaultTitle: string }
+> = {
+    fr: {
+        defaultTitle: 'The Bythiah Project — Éducation, santé et sport pour la jeunesse',
+        description:
+            'The Bythiah Project (TBP) : ONG humanitaire pour l’éducation, la santé et le sport au service des enfants et des jeunes en RDC et en Afrique. Solidarité et impact durable sur le terrain.',
+        keywords: [
+            'The Bythiah Project',
+            'TBP',
+            'ONG',
+            'RDC',
+            'Congo',
+            'éducation',
+            'santé',
+            'sport',
+            'enfants',
+            'jeunes',
+            'humanitaire',
+            'solidarité',
+        ],
+    },
+    en: {
+        defaultTitle: 'The Bythiah Project — Education, health, and sport for youth',
+        description:
+            'The Bythiah Project (TBP): humanitarian NGO advancing education, health, and sport for children and youth in the Democratic Republic of the Congo and beyond.',
+        keywords: [
+            'The Bythiah Project',
+            'TBP',
+            'NGO',
+            'DRC',
+            'Congo',
+            'education',
+            'health',
+            'sport',
+            'children',
+            'youth',
+            'humanitarian',
+            'solidarity',
+        ],
+    },
+};
