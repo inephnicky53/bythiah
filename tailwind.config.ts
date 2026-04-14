@@ -80,7 +80,8 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        marquee: 'marquee 20s linear infinite',
+        /** Partenaires : un cycle plus lent pour une lecture confortable */
+        marquee: 'marquee 60s linear infinite',
       },
     },
   },

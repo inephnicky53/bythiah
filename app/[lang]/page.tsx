@@ -1,4 +1,5 @@
 import { type Locale } from '@/lib/i18n';
+import { getPartnerLogos } from '@/lib/partners';
 import dynamic from 'next/dynamic';
 import VideoHero from '@/components/VideoHero';
 import ScrollingSection from '@/components/ScrollingSection';
@@ -18,6 +19,7 @@ interface HomePageProps {
 
 export default function HomePage({ params }: HomePageProps) {
   const lang = params.lang as Locale;
+  const partners = getPartnerLogos();
 
   return (
     <div className="flex flex-col">
@@ -34,7 +36,7 @@ export default function HomePage({ params }: HomePageProps) {
       <ProjectGallery lang={lang} />
 
       {/* Partners Section */}
-      <Partners lang={lang} />
+      <Partners lang={lang} partners={partners} />
 
       {/* Scroll to Top Button */}
       <ScrollTop />

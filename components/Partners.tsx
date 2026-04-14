@@ -1,30 +1,37 @@
 'use client';
 
-import {useEffect, useRef} from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import {type Locale} from '@/lib/i18n';
+import type {PartnerLogo} from '@/lib/partners';
 
 interface PartnersProps {
     lang: Locale;
+    /** From `getPartnerLogos()` on the server; defaults to [] if omitted. */
+    partners?: PartnerLogo[];
 }
 
-interface Sponsor {
-    id: string;
-    name: string;
-    logo: string;
-}
-
-const sponsors: Sponsor[] = [
-    {id: 'sponsor1', name: 'Sponsor 1', logo: '/images/sponsors/sponsor1.jpg'},
-    {id: 'sponsor2', name: 'Sponsor 2', logo: '/images/sponsors/sponsor2.jpg'},
-    {id: 'sponsor3', name: 'Sponsor 3', logo: '/images/sponsors/sponsor3.jpg'},
-    {id: 'sponsor4', name: 'Sponsor 4', logo: '/images/sponsors/sponsor4.jpg'},
-];
-
-// On duplique les sponsors pour un défilement infini fluide
-const marqueeItems = [...sponsors, ...sponsors, ...sponsors];
-
-export default function Partners({lang}: PartnersProps) {
+export default function Partners({ lang, partners = [] }: PartnersProps) {
     const titleRef = useRef<HTMLHeadingElement>(null);
+    /** Si les props RSC arrivent vides, rechargement via /api/partners */
+    const [fetched, setFetched] = useState<PartnerLogo[] | null>(null);
+
+    useEffect(() => {
+        if (partners.length > 0) return;
+        let cancelled = false;
+        fetch('/api/partners')
+            .then((r) => r.json())
+            .then((data: { partners?: PartnerLogo[] }) => {
+                if (!cancelled && Array.isArray(data.partners) && data.partners.length > 0) {
+                    setFetched(data.partners);
+                }
+            })
+            .catch(() => {});
+        return () => {
+            cancelled = true;
+        };
+    }, [partners.length]);
+
+    const effectivePartners = partners.length > 0 ? partners : (fetched ?? []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,6 +47,11 @@ export default function Partners({lang}: PartnersProps) {
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const marqueeItems = useMemo(() => {
+        if (effectivePartners.length === 0) return [];
+        return [...effectivePartners, ...effectivePartners, ...effectivePartners];
+    }, [effectivePartners]);
 
     return (
         <section className="relative bg-accent/5 overflow-hidden py-10 lg:py-20">
@@ -81,30 +93,31 @@ export default function Partners({lang}: PartnersProps) {
                 </p>
             </div>
 
-            {/* Marquee animé */}
-            <div className="relative w-full mt-10">
-                {/* Dégradés latéraux */}
-                <div
-                    className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-accent/5 to-transparent"/>
-                <div
-                    className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-accent/5 to-transparent"/>
+            {/* Marquee animé — logos depuis public/img/partners */}
+            {marqueeItems.length > 0 && (
+                <div className="relative w-full mt-10 group">
+                    <div
+                        className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-accent/5 to-transparent"/>
+                    <div
+                        className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-accent/5 to-transparent"/>
 
-                <div className="flex animate-marquee gap-8 w-max">
-                    {marqueeItems.map((sponsor, index) => (
-                        <div
-                            key={`${sponsor.id}-${index}`}
-                            className="flex-shrink-0 w-48 h-32 bg-white rounded-2xl shadow-md border border-border/30 flex items-center justify-center p-4 hover:shadow-lg transition-shadow duration-300"
-                        >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                                src={sponsor.logo}
-                                alt={sponsor.name}
-                                className="max-h-full max-w-full object-contain"
-                            />
-                        </div>
-                    ))}
+                    <div className="flex animate-marquee gap-8 w-max group-hover:[animation-play-state:paused]">
+                        {marqueeItems.map((sponsor, index) => (
+                            <div
+                                key={`${sponsor.id}-${index}`}
+                                className="flex-shrink-0 w-48 h-32 bg-white rounded-2xl shadow-md border border-border/30 flex items-center justify-center p-4 hover:shadow-lg transition-shadow duration-300"
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={sponsor.logo}
+                                    alt={sponsor.name}
+                                    className="max-h-full max-w-full object-contain"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* CTA */}
             <div className="mt-12 text-center container mx-auto px-4">
