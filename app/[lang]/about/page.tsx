@@ -3,7 +3,7 @@
 import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import PageHero from '@/components/PageHero';
 import { motion } from 'framer-motion';
-import { Quote, History, ShieldCheck, GraduationCap, MapPin, Trophy } from 'lucide-react';
+import { Quote, History, ShieldCheck, GraduationCap, MapPin, Trophy, Users } from 'lucide-react';
 
 interface AboutPageProps {
   params: {
@@ -71,7 +71,7 @@ export default function AboutPage({ params }: AboutPageProps) {
               >
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden border-8 border-primary/20 shadow-2xl">
                   <img
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                      src="/images/teams/zalia.jpeg"
                       alt="Mme Zalia Amour"
                       className="w-full h-full object-cover"
                   />
@@ -208,7 +208,95 @@ export default function AboutPage({ params }: AboutPageProps) {
           </div>
         </section>
 
-        {/* 5. CTA SECTION */}
+        {/* 5. NOTRE ÉQUIPE */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <motion.div {...fadeInUp} className="inline-block p-3 bg-secondary rounded-full text-primary mb-4">
+                <Users size={32} />
+              </motion.div>
+              <motion.h2 {...fadeInUp} className="text-4xl font-bold text-accent mb-4">
+                {lang === 'fr' ? 'Notre Équipe' : 'Our Team'}
+              </motion.h2>
+              <motion.p {...fadeInUp} className="text-accent/60 max-w-2xl mx-auto">
+                {lang === 'fr'
+                    ? "Une équipe dévouée travaillant sans relâche pour transformer la vie des enfants vulnérables."
+                    : "A dedicated team working tirelessly to transform the lives of vulnerable children."}
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  name: 'Providence TEPATONDELE',
+                  role: lang === 'fr' ? 'Secrétaire Général' : 'General Secretary',
+                  image: '/images/teams/WhatsApp Image 2026-04-21 at 17.38.27.jpeg',
+                  bio: lang === 'fr'
+                      ? "Assure la fluidité administrative et la coordination institutionnelle du projet."
+                      : "Ensures administrative fluidity and institutional coordination of the project."
+                },
+                {
+                  name: 'Jean-Marc LUKUSA',
+                  role: lang === 'fr' ? 'Directeur des Opérations' : 'Operations Director',
+                  image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
+                  bio: lang === 'fr'
+                      ? "Supervise les actions de terrain pour garantir l'efficacité de nos interventions."
+                      : "Supervises field actions to guarantee the efficiency of our interventions."
+                },
+                {
+                  name: 'Sarah MUKENI',
+                  role: lang === 'fr' ? 'Responsable Éducation' : 'Education Lead',
+                  image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+                  bio: lang === 'fr'
+                      ? "Élabore des programmes pédagogiques adaptés aux besoins spécifiques de chaque enfant."
+                      : "Develops pedagogical programs adapted to the specific needs of each child."
+                },
+                {
+                  name: 'Alain KABONGO',
+                  role: lang === 'fr' ? 'Trésorier' : 'Treasurer',
+                  image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+                  bio: lang === 'fr'
+                      ? "Garantit une gestion financière transparente et rigoureuse au service de nos bénéficiaires."
+                      : "Guarantees transparent and rigorous financial management for our beneficiaries."
+                }
+              ].map((member, index) => (
+                  <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group"
+                  >
+                    <div className="bg-secondary/10 rounded-3xl overflow-hidden border border-secondary transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 group-hover:-translate-y-2">
+                      <div className="aspect-square relative overflow-hidden">
+                        <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-accent/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                          <p className="text-white text-sm italic line-clamp-3">
+                            "{member.bio}"
+                          </p>
+                        </div>
+                      </div>
+                      <div className="p-6 text-center">
+                        <h3 className="text-xl font-bold text-accent mb-1 group-hover:text-primary transition-colors">
+                          {member.name}
+                        </h3>
+                        <p className="text-primary font-medium text-sm uppercase tracking-wider">
+                          {member.role}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 6. CTA SECTION */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <motion.div
