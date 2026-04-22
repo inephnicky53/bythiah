@@ -46,8 +46,8 @@ export default function AboutPage({ params }: AboutPageProps) {
               <motion.div {...fadeInUp} className="prose prose-lg mx-auto text-accent/80 leading-relaxed">
                 <p>
                   {lang === 'fr'
-                      ? "Nous avons choisi le nom The Bythiah Project (TBP) en hommage à la princesse égyptienne Bithiah (« Fille de Dieu »), qui sauva Moïse des eaux du Nil. Cet acte d’humanité pure définit notre mission."
-                      : "The Bythiah Project (TBP) takes its name from the Egyptian princess Bithiah ('Daughter of God'), who saved Moses from the waters of the Nile. This act of pure humanity defines our mission."}
+                      ? "Nous avons choisi le nom The Bythiah Project (TBP) en hommage à la princesse égyptienne Bythiah (« Fille de Dieu »), qui sauva Moïse des eaux du Nil. Cet acte d’humanité pure définit notre mission."
+                      : "The Bythiah Project (TBP) takes its name from the Egyptian princess Bythiah ('Daughter of God'), who saved Moses from the waters of the Nile. This act of pure humanity defines our mission."}
                 </p>
                 <blockquote className="text-primary font-semibold text-2xl mt-8 border-none italic">
                   {lang === 'fr'
@@ -306,7 +306,7 @@ export default function AboutPage({ params }: AboutPageProps) {
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-primary" />
               <h2 className="text-3xl font-bold mb-6">
-                {lang === 'fr' ? 'Devenez une Bithiah aujourd’hui' : 'Become a Bythiah Today'}
+                {lang === 'fr' ? 'Devenez une Bythiah aujourd’hui' : 'Become a Bythiah Today'}
               </h2>
               <p className="text-secondary/70 mb-10 text-lg max-w-2xl mx-auto">
                 {lang === 'fr'
