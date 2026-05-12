@@ -23,7 +23,7 @@ export default function AboutPage({ params }: AboutPageProps) {
   };
 
   return (
-      <div className="min-h-screen bg-secondary/30">
+    <div className="min-h-screen bg-secondary/30">
         <PageHero
             title={translate(translations, 'nav.about')}
             description={lang === 'fr'
@@ -230,7 +230,7 @@ export default function AboutPage({ params }: AboutPageProps) {
                 {
                   name: 'Providence TEPATONDELE',
                   role: lang === 'fr' ? 'Secrétaire Général' : 'General Secretary',
-                  image: '/images/teams/WhatsApp Image 2026-04-21 at 17.38.27.jpeg',
+                  image: '/images/teams/providence.jpeg',
                   bio: lang === 'fr'
                       ? "Assure la fluidité administrative et la coordination institutionnelle du projet."
                       : "Ensures administrative fluidity and institutional coordination of the project."

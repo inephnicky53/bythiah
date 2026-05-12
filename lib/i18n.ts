@@ -47,7 +47,7 @@ const home = {
         },
         intro: {
             title: 'Agir Ensemble pour le Bien-Être Universel',
-            description: "Nous sommes The Bythiah Project (TBP), une organisation non gouvernementale (ONG) à caractère philanthropique. Nous œuvrons dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo et dans plusieurs autres pays. À travers nos actions et nos programmes, nous nous engageons à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
+            description: "Nous sommes The Bythiah Project (TBP), une Organisation Non Gouvernementale (ONG) à caractère philanthropique. Nous œuvrons dans les secteurs de l’éducation, de la santé et du sport en République Démocratique du Congo (RDC) et dans plusieurs autres pays. À travers nos actions et nos programmes, nous nous engageons à promouvoir le bien-être des enfants et des jeunes, tout en contribuant au développement des communautés.\n",
             since: "Depuis plus d’une décennie, nous agissons pour l’assistance à l’enfance et à la jeunesse, en particulier auprès des populations les plus vulnérables. À travers des initiatives éducatives, sanitaires et sportives, nous accompagnons les enfants et les jeunes afin de leur offrir des opportunités d’apprentissage des métiers, d’encadrement et d’épanouissement.\n",
             commitment: "Notre engagement est de créer un impact durable dans les communautés qui en ont le plus besoin, en apportant soutien, espoir et dignité aux personnes les plus fragiles. En investissant dans la jeunesse et en valorisant leur potentiel, nous contribuons à construire un avenir plus prometteur pour les générations futures."
 
@@ -76,9 +76,9 @@ const home = {
         },
         about: {
             title: 'Qui Sommes-Nous ?',
-            description: "Nous sommes une Organisation Non-Gouvernementale (ONG) créée en Juillet 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animés par des valeurs de solidarité, d’équité et de responsabilité sociale, nous œuvrons pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
+            description: "Nous sommes une Organisation Non Gouvernementale (ONG) créée en Juillet 2010, engagée pour l’amélioration durable des conditions de vie des enfants et des jeunes. Animés par des valeurs de solidarité, d’équité et de responsabilité sociale, nous œuvrons pour offrir de meilleures perspectives aux populations les plus vulnérables.\n",
             intervention: "Nos actions s’articulent principalement autour de trois domaines essentiels : l’éducation, la santé et le sport, conformément au décret ministériel n°011/CAB/ME/J & GS/2018. À travers ces piliers, nous développons des initiatives visant à accompagner les enfants et les jeunes dans leur épanouissement personnel, leur formation et leur intégration au sein de la société.\n",
-            journey: "Depuis notre création, nous avons impacté la vie de milliers de personnes en République Démocratique du Congo et au-delà. Notre approche holistique nous permet de répondre aux besoins réels des communautés avec lesquelles nous travaillons, en mettant l’accent sur des solutions durables qui contribuent au développement humain et social.",
+            journey: "Depuis notre création, nous avons impacté la vie de milliers de personnes en République Démocratique du Congo (RDC) et au-delà. Notre approche holistique nous permet de répondre aux besoins réels des communautés avec lesquelles nous travaillons, en mettant l’accent sur des solutions durables qui contribuent au développement humain et social.",
         },
         vocation: {
             title: 'Notre vocation',
@@ -122,7 +122,7 @@ const home = {
         },
         intro: {
             title: "Acting together for universal well-being",
-            description: "A philanthropic non-governmental organization, The Bythiah Project works in the sectors of education, health, and sports in the Democratic Republic of Congo and in several other countries. Through its actions and programs, the organization is committed to promoting the well-being of children and youth while contributing to the development of communities.\n",
+            description: "A philanthropic non-governmental organization (NGO), The Bythiah Project works in the sectors of education, health, and sports in the Democratic Republic of Congo (DRC) and in several other countries. Through its actions and programs, the organization is committed to promoting the well-being of children and youth while contributing to the development of communities.\n",
             since: "For more than a decade, the organization has been working to support children and youth, particularly among the most vulnerable populations. Through educational, health, and sports initiatives, The Bythiah Project supports children and young people by offering them opportunities for learning, guidance, and personal development.\n",
             commitment: "Our commitment is to create a lasting impact in the communities that need it most by bringing support, hope, and dignity to the most vulnerable individuals. By investing in youth and valuing their potential, we contribute to building a more promising future for the generations to come."
         },
@@ -137,9 +137,9 @@ const home = {
         },
         about: {
             title: "Who are we?",
-            description: "The Bythiah Project is a non-governmental organization created in July 2010, committed to the sustainable improvement of the living conditions of children and young people. Driven by values of solidarity, equity, and social responsibility, the organization works to offer better prospects to the most vulnerable populations.\n",
+            description: "The Bythiah Project is a non-governmental organization (NGO) created in July 2010, committed to the sustainable improvement of the living conditions of children and young people. Driven by values of solidarity, equity, and social responsibility, the organization works to offer better prospects to the most vulnerable populations.\n",
             intervention: "Our actions are mainly structured around three essential areas: education, health, and sports, in accordance with ministerial decree No. 011/CAB/ME/J & GS/2018. Through these pillars, we develop initiatives aimed at supporting children and youth in their personal growth, education, and integration into society.\n",
-            journey: "Since its creation, The Bythiah Project has impacted the lives of thousands of people in the Democratic Republic of Congo and beyond. Our holistic approach allows us to address the real needs of the communities we work with, focusing on sustainable solutions that contribute to human and social development."
+            journey: "Since its creation, The Bythiah Project has impacted the lives of thousands of people in the Democratic Republic of Congo (DRC) and beyond. Our holistic approach allows us to address the real needs of the communities we work with, focusing on sustainable solutions that contribute to human and social development."
         },
         vocation: {
             title: "Our vocation",
@@ -407,7 +407,7 @@ export const localeSeo: Record<
     en: {
         defaultTitle: 'The Bythiah Project — Education, health, and sport for youth',
         description:
-            'The Bythiah Project (TBP): humanitarian NGO advancing education, health, and sport for children and youth in the Democratic Republic of the Congo and beyond.',
+            'The Bythiah Project (TBP): humanitarian NGO advancing education, health, and sport for children and youth in the Democratic Republic of the Congo (DRC) and beyond.',
         keywords: [
             'The Bythiah Project',
             'TBP',
