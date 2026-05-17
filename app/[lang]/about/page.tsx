@@ -124,7 +124,7 @@ export default function AboutPage({ params }: AboutPageProps) {
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
-                    date: 'Septembre 1999',
+                    date: 'septembre 1999',
                     loc: 'Boston, USA',
                     title: lang === 'fr' ? 'La Genèse' : 'The Genesis',
                     desc: lang === 'fr' ? 'Rédaction du premier projet à Boston suite aux observations des failles éducatives en RDC.' : 'Writing of the first project in Boston following observations of educational failures in DRC.'
@@ -142,7 +142,7 @@ export default function AboutPage({ params }: AboutPageProps) {
                     desc: lang === 'fr' ? 'Recherches sur les similitudes post-conflit. Relance du projet après l’épidémie d’Ebola.' : 'Research on post-conflict similarities. Project relaunch after the Ebola epidemic.'
                   },
                   {
-                    date: '9 Juin 2020',
+                    date: '9 juin 2020',
                     loc: 'Libéria',
                     title: lang === 'fr' ? 'Accord de Siège' : 'Headquarters Agreement',
                     desc: lang === 'fr' ? 'Signature officielle avec le gouvernement libérien malgré les défis de la COVID-19.' : 'Official signature with the Liberian government despite COVID-19 challenges.'
@@ -235,7 +235,7 @@ export default function AboutPage({ params }: AboutPageProps) {
                       ? "Assure la fluidité administrative et la coordination institutionnelle du projet."
                       : "Ensures administrative fluidity and institutional coordination of the project."
                 },
-                {
+                /*{
                   name: 'Jean-Marc LUKUSA',
                   role: lang === 'fr' ? 'Directeur des Opérations' : 'Operations Director',
                   image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
@@ -258,7 +258,7 @@ export default function AboutPage({ params }: AboutPageProps) {
                   bio: lang === 'fr'
                       ? "Garantit une gestion financière transparente et rigoureuse au service de nos bénéficiaires."
                       : "Guarantees transparent and rigorous financial management for our beneficiaries."
-                }
+                }*/
               ].map((member, index) => (
                   <motion.div
                       key={index}
