@@ -23,14 +23,14 @@ export default function AboutPage({ params }: AboutPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-secondary/30">
+    <div className="min-h-screen bg-secondary/20">
         <PageHero
             title={translate(translations, 'nav.about')}
             description={lang === 'fr'
                 ? "Chacun peut devenir une « Bythiah » et offrir une chance pour un avenir meilleur."
                 : "Everyone can become a 'Bythiah' and offer a chance for a better future."}
-            color="#433b1c" // Accent color
-            backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+            color="#463e1fff" // Accent color
+            backgroundImage="/images/about2.jpg"
         />
 
         {/* 1. L'ORIGINE : Le Concept Biblique & Symbolique */}
@@ -235,15 +235,15 @@ export default function AboutPage({ params }: AboutPageProps) {
                       ? "Assure la fluidité administrative et la coordination institutionnelle du projet."
                       : "Ensures administrative fluidity and institutional coordination of the project."
                 },
-                /*{
-                  name: 'Jean-Marc LUKUSA',
-                  role: lang === 'fr' ? 'Directeur des Opérations' : 'Operations Director',
-                  image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
+                {
+                  name: "Marcel Tatu",
+                  role: lang === 'fr' ? "Membre d'Honneur et du Conseil d'Administration" : "Member of Honor and the Administration Committee",
+                  image: '/images/teams/marcel.jpg',
                   bio: lang === 'fr'
                       ? "Supervise les actions de terrain pour garantir l'efficacité de nos interventions."
                       : "Supervises field actions to guarantee the efficiency of our interventions."
                 },
-                {
+                /*{
                   name: 'Sarah MUKENI',
                   role: lang === 'fr' ? 'Responsable Éducation' : 'Education Lead',
                   image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',

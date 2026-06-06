@@ -44,7 +44,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                 translate(translations, 'home.intro.since'),
                 translate(translations, 'home.intro.commitment'),
             ],
-            image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80',
+            image: 'images/universal.jpg',
         },
 
         {
@@ -55,7 +55,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                 translate(translations, 'home.about.intervention'),
                 translate(translations, 'home.about.journey'),
             ],
-            image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80',
+            image: 'images/about.jpg',
         },
         {
             id: 'vocation',
@@ -65,7 +65,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                 translate(translations, 'home.vocation.support'),
                 translate(translations, 'home.vocation.work'),
             ],
-            image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80',
+            image: 'images/vocation.jpg',
         },
         {
             id: 'mission',
@@ -82,7 +82,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                 translate(translations, 'home.mission.goal'),
                 translate(translations, 'home.mission.mindset'),
             ],
-            image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80',
+            image: 'images/mission.jpg',
         },
         {
             id: 'vision',
@@ -92,7 +92,7 @@ export default function ScrollingSection({lang}: ScrollingSectionProps) {
                 translate(translations, 'home.vision.building'),
                 translate(translations, 'home.vision.priority'),
             ],
-            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+            image: 'images/vision.jpg',
         },
     ];
 

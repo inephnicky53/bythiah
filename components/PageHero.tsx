@@ -35,7 +35,7 @@ export default function PageHero({
                         alt={title}
                         className="w-full h-full object-cover opacity-30"
                     />
-                    <div className="absolute inset-0 bg-black/30" />
+                    <div className="absolute inset-0 bg-black/10" />
                 </div>
             )}
 

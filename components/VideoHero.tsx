@@ -29,7 +29,7 @@ export default function VideoHero({lang}: VideoHeroProps) {
                     muted
                     playsInline
                     preload="metadata"
-                    poster="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
+                    poster="images/cover.jpg"
                     className="h-full w-full object-cover"
                 >
                     <source
