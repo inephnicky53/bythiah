@@ -32,10 +32,9 @@ export default function EducationPage({ params }: PillarPageProps) {
     const translations = getTranslations(lang);
 
     const galleryImages = [
-        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80",
-        "https://images.unsplash.com/photo-1524178232363-1fb28f74b671?w=1200&q=80",
-        "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1200&q=80"
+        "/images/education_1.jpg",
+        "/images/education_2.jpg",
+        "/images/education_3.jpg",
     ];
 
     const fadeInUp = {
@@ -53,7 +52,7 @@ export default function EducationPage({ params }: PillarPageProps) {
                     ? "Bâtir l'avenir à travers l'éducation de base et l'excellence académique."
                     : "Building the future through basic education and academic excellence."}
                 color="#433b1c"
-                backgroundImage="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80"
+                backgroundImage="/images/cover_education.jpg"
             />
 
             {/* SECTION 1: CITATION & VISION */}
@@ -162,20 +161,36 @@ export default function EducationPage({ params }: PillarPageProps) {
                         </motion.div>
                         <motion.div {...fadeInUp} className="lg:w-1/2 grid grid-cols-2 gap-4">
                             <div className="space-y-4">
-                                <div className="h-64 relative rounded-3xl overflow-hidden shadow-xl">
-                                    <NextImage src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80" alt="Mentoring" fill className="object-cover" />
-                                </div>
-                                <div className="h-48 relative rounded-3xl overflow-hidden shadow-xl">
-                                    <NextImage src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80" alt="Classes" fill className="object-cover" />
-                                </div>
+                                <motion.div
+                                    className="h-64 relative rounded-3xl overflow-hidden shadow-xl"
+                                    whileHover={{ scale: 1.05, rotate: -2 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <NextImage src="/images/education_side_1.jpg" alt="Mentoring" fill className="object-cover" />
+                                </motion.div>
+                                <motion.div
+                                    className="h-48 relative rounded-3xl overflow-hidden shadow-xl"
+                                    whileHover={{ scale: 1.05, rotate: 2 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <NextImage src="/images/education_side_2.jpg" alt="Classes" fill className="object-cover" />
+                                </motion.div>
                             </div>
                             <div className="pt-12 space-y-4">
-                                <div className="h-48 relative rounded-3xl overflow-hidden shadow-xl">
-                                    <NextImage src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80" alt="Students" fill className="object-cover" />
-                                </div>
-                                <div className="h-64 relative rounded-3xl overflow-hidden shadow-xl">
-                                    <NextImage src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=80" alt="Play" fill className="object-cover" />
-                                </div>
+                                <motion.div
+                                    className="h-48 relative rounded-3xl overflow-hidden shadow-xl"
+                                    whileHover={{ scale: 1.05, rotate: -2 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <NextImage src="/images/education_side_3.jpg" alt="Students" fill className="object-cover" />
+                                </motion.div>
+                                <motion.div
+                                    className="h-64 relative rounded-3xl overflow-hidden shadow-xl"
+                                    whileHover={{ scale: 1.05, rotate: 2 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <NextImage src="/images/education_side_5.jpg" alt="Play" fill className="object-cover" />
+                                </motion.div>
                             </div>
                         </motion.div>
                     </div>

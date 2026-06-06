@@ -1,14 +1,14 @@
 'use client';
 
-import {getTranslations, type Locale, t as translate} from '@/lib/i18n';
+import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
 import PageHero from '@/components/PageHero';
-import {motion} from 'framer-motion';
-import {Trophy, Target, Users, Medal, ArrowRight, Star, Zap, ChevronRight, HeartHandshake} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Trophy, Target, Users, Medal, ArrowRight, Star, Zap, ChevronRight, HeartHandshake } from 'lucide-react';
 import NextImage from 'next/image';
 import Link from 'next/link';
-import {useEffect, useMemo, useState} from 'react';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Autoplay, Pagination, EffectFade} from 'swiper/modules';
+import { useEffect, useMemo, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 
 // Styles Swiper obligatoires
 import 'swiper/css';
@@ -21,16 +21,22 @@ interface PillarPageProps {
     };
 }
 
-export default function SportPage({params}: PillarPageProps) {
+export default function SportPage({ params }: PillarPageProps) {
     const lang = params.lang as Locale;
     const translations = getTranslations(lang);
     const [partnerLogos, setPartnerLogos] = useState<string[]>([]);
 
     const sportImages = [
-        "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&q=80",
-        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=1200&q=80",
-        "https://images.unsplash.com/photo-1511886929837-354d827aae26?w=1200&q=80",
-        "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80"
+        "/images/slide_sport_1.jpg",
+        "/images/slide_sport_2.jpg",
+        "/images/slide_sport_3.jpg",
+        "/images/slide_sport_4.jpg",
+        "/images/slide_sport_5.jpg",
+        "/images/slide_sport_6.jpg",
+        "/images/slide_sport_7.jpg",
+        "/images/slide_sport_8.jpg",
+        "/images/slide_sport_9.jpg",
+        "/images/slide_sport_10.jpg",
     ];
 
     useEffect(() => {
@@ -44,7 +50,7 @@ export default function SportPage({params}: PillarPageProps) {
                     .filter((logo): logo is string => typeof logo === 'string');
                 if (logos.length > 0) setPartnerLogos(logos);
             })
-            .catch(() => {});
+            .catch(() => { });
         return () => {
             cancelled = true;
         };
@@ -60,10 +66,10 @@ export default function SportPage({params}: PillarPageProps) {
     );
 
     const fadeInUp = {
-        initial: {opacity: 0, y: 30},
-        whileInView: {opacity: 1, y: 0},
-        viewport: {once: true},
-        transition: {duration: 0.6}
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.6 }
     };
 
     return (
@@ -74,7 +80,7 @@ export default function SportPage({params}: PillarPageProps) {
                     ? "Détecter les talents invisibles et cultiver l'excellence par les valeurs du sport."
                     : "Detecting invisible talents and cultivating excellence through sports values."}
                 color="#433b1c"
-                backgroundImage={sportImages[0]}
+                backgroundImage="/images/cover_sport.jpg"
             />
 
             {/* SECTION 1: VISION & TBSA */}
@@ -83,7 +89,7 @@ export default function SportPage({params}: PillarPageProps) {
                     <motion.div {...fadeInUp} className="mb-8">
                         <div
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-white font-bold text-[11px] sm:text-sm uppercase mb-6 tracking-wide leading-tight">
-                            <Trophy size={18} className="text-primary"/>
+                            <Trophy size={18} className="text-primary" />
                             The Bythiah Sport Association (TBSA)
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6">
@@ -111,14 +117,14 @@ export default function SportPage({params}: PillarPageProps) {
 
                             <div className="flex flex-wrap gap-3">
                                 {[
-                                    {word: 'Dénicher', en: 'Detect'},
-                                    {word: 'Former', en: 'Train'},
-                                    {word: 'Valoriser', en: 'Promote'}
+                                    { word: 'Dénicher', en: 'Detect' },
+                                    { word: 'Former', en: 'Train' },
+                                    { word: 'Valoriser', en: 'Promote' }
                                 ].map((item, i) => (
                                     <span key={i}
-                                          className="bg-primary text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-black shadow-lg shadow-primary/20 uppercase">
-                    {lang === 'fr' ? item.word : item.en}
-                  </span>
+                                        className="bg-primary text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-black shadow-lg shadow-primary/20 uppercase">
+                                        {lang === 'fr' ? item.word : item.en}
+                                    </span>
                                 ))}
                             </div>
 
@@ -133,7 +139,7 @@ export default function SportPage({params}: PillarPageProps) {
                                     className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-secondary shadow-sm group hover:border-primary transition-colors">
                                     <div
                                         className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                                        <Star size={24}/>
+                                        <Star size={24} />
                                     </div>
                                     <span className="font-bold text-accent">PSG Academy Turkey</span>
                                 </div>
@@ -141,7 +147,7 @@ export default function SportPage({params}: PillarPageProps) {
                                     className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-secondary shadow-sm group hover:border-primary transition-colors">
                                     <div
                                         className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                                        <Medal size={24}/>
+                                        <Medal size={24} />
                                     </div>
                                     <span className="font-bold text-accent">FECOFA</span>
                                 </div>
@@ -154,14 +160,14 @@ export default function SportPage({params}: PillarPageProps) {
                                 <Swiper
                                     modules={[Autoplay, Pagination, EffectFade]}
                                     effect="fade"
-                                    autoplay={{delay: 3000}}
-                                    pagination={{clickable: true}}
+                                    autoplay={{ delay: 3000 }}
+                                    pagination={{ clickable: true }}
                                     className="h-[320px] sm:h-[420px] lg:h-[500px]"
                                 >
                                     {sportImages.map((src, index) => (
                                         <SwiperSlide key={index}>
                                             <NextImage src={src} alt={`Sport activity ${index}`} fill
-                                                       className="object-cover"/>
+                                                className="object-cover" />
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
@@ -196,7 +202,7 @@ export default function SportPage({params}: PillarPageProps) {
                                         [mask-size:100%_100%] [mask-repeat:no-repeat]`}
                                     >
                                         <motion.div
-                                            animate={{y: isDown ? ['-50%', '0%'] : ['0%', '-50%']}}
+                                            animate={{ y: isDown ? ['-50%', '0%'] : ['0%', '-50%'] }}
                                             transition={{
                                                 duration: 10 + colIndex * 1.5,
                                                 ease: 'linear',
@@ -273,7 +279,7 @@ export default function SportPage({params}: PillarPageProps) {
                             </p>
                         </motion.div>
 
-                        <motion.div {...fadeInUp} transition={{delay: 0.15}} className="rounded-[1.5rem] sm:rounded-[2rem] border border-secondary bg-secondary/10 p-6 sm:p-8 shadow-lg">
+                        <motion.div {...fadeInUp} transition={{ delay: 0.15 }} className="rounded-[1.5rem] sm:rounded-[2rem] border border-secondary bg-secondary/10 p-6 sm:p-8 shadow-lg">
                             <div className="flex justify-center mb-6">
                                 <NextImage
                                     src="/images/sport.jpg"
@@ -307,30 +313,30 @@ export default function SportPage({params}: PillarPageProps) {
                         {[
                             {
                                 title: lang === 'fr' ? 'Esprit d’Équipe' : 'Team Spirit',
-                                icon: <Users/>,
-                                img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80"
+                                icon: <Users />,
+                                img: "/images/sport_team.jpg"
                             },
                             {
                                 title: lang === 'fr' ? 'Discipline' : 'Discipline',
-                                icon: <Target/>,
-                                img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=80"
+                                icon: <Target />,
+                                img: "/images/sport_discipline.jpg"
                             },
                             {
                                 title: lang === 'fr' ? 'Résilience' : 'Resilience',
-                                icon: <Zap/>,
-                                img: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=1200&q=80"
+                                icon: <Zap />,
+                                img: "/images/sport_resilience.jpg"
                             }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
                                 {...fadeInUp}
-                                transition={{delay: i * 0.2}}
+                                transition={{ delay: i * 0.2 }}
                                 className="group relative h-72 sm:h-80 md:h-96 rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden"
                             >
                                 <NextImage src={item.img} alt={item.title} fill
-                                           className="object-cover group-hover:scale-110 transition-transform duration-700"/>
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div
-                                    className="absolute inset-0 bg-gradient-to-t from-accent via-accent/20 to-transparent"/>
+                                    className="absolute inset-0 bg-gradient-to-t from-accent via-accent/20 to-transparent" />
                                 <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8">
                                     <div className="flex items-center gap-3 text-primary mb-2">
                                         {item.icon}
@@ -346,7 +352,7 @@ export default function SportPage({params}: PillarPageProps) {
             {/* SECTION 6: NAVIGATION ENTRE PILIERS */}
             <section className="py-14 md:py-24 bg-secondary/30">
                 <motion.div {...fadeInUp} className="max-w-3xl mx-auto space-y-8">
-                    <HeartHandshake className="w-16 h-16 text-primary mx-auto"/>
+                    <HeartHandshake className="w-16 h-16 text-primary mx-auto" />
                     <h2 className="text-3xl md:text-4xl font-bold text-accent text-center">
                         {lang === 'fr' ? "Découvrez nos autres champs d'action" : "Discover our other fields of action"}
                     </h2>
@@ -365,14 +371,14 @@ export default function SportPage({params}: PillarPageProps) {
                                     className="flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-accent text-white rounded-2xl font-bold hover:bg-primary transition-all group"
                                 >
                                     {lang === 'fr' ? 'Éducation' : 'Education'}
-                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform"/>
+                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <Link
                                     href={`/${lang}/pillars/health`}
                                     className="flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-2xl font-bold hover:bg-accent transition-all group"
                                 >
                                     {lang === 'fr' ? 'Santé' : 'Health'}
-                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform"/>
+                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
                         </div>

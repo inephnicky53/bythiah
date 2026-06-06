@@ -50,7 +50,7 @@ export default function ContactPage({params}: ContactPageProps) {
                     ? "Nous sommes à votre écoute. Une question, un projet ou une envie de contribuer ? Contactez-nous."
                     : "We are listening. A question, a project, or a desire to contribute? Get in touch with us."}
                 color="#433b1c"
-                backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80"
+                backgroundImage="/images/cover_contact.jpg"
             />
 
             <section className="py-20 relative overflow-hidden">

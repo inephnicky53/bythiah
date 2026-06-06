@@ -45,7 +45,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
                 ? "Éducation, Santé et Sport : nos leviers pour transformer durablement la jeunesse africaine."
                 : "Education, Health and Sport: our levers to sustainably transform African youth."}
             color="#433b1c"
-            backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+            backgroundImage="/images/cover_pillars.jpg"
         />
 
         {/* INTRODUCTION SECTION */}
@@ -125,7 +125,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
               </motion.div>
               <motion.div {...fadeInUp} className="relative">
                 <div className="aspect-video lg:aspect-square rounded-[3rem] overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-8 border-secondary">
-                  <Image src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80" alt="Education" fill className="object-cover" />
+                  <Image src="/images/pillar_education.jpg" alt="Education" fill className="object-cover" />
                 </div>
               </motion.div>
             </div>
@@ -138,7 +138,7 @@ export default function PillarsPage({ params }: PillarsPageProps) {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div {...fadeInUp} className="order-2 lg:order-1 relative">
                 <div className="aspect-video lg:aspect-square rounded-[3rem] overflow-hidden shadow-2xl -rotate-3 hover:rotate-0 transition-transform duration-500 border-8 border-white/10">
-                  <Image src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80" alt="Health" fill className="object-cover" />
+                  <Image src="/images/pillar_sante.jpg" alt="Health" fill className="object-cover" />
                 </div>
               </motion.div>
               <motion.div {...fadeInUp} className="order-1 lg:order-2 space-y-8">
@@ -222,20 +222,36 @@ export default function PillarsPage({ params }: PillarsPageProps) {
 
               <motion.div {...fadeInUp} className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-12">
-                  <div className="aspect-[3/4] rounded-3xl overflow-hidden relative shadow-xl">
-                    <Image src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80" alt="Sport 1" fill className="object-cover" />
-                  </div>
-                  <div className="aspect-square rounded-3xl overflow-hidden relative shadow-xl">
-                    <Image src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=600&q=80" alt="Sport 2" fill className="object-cover" />
-                  </div>
+                  <motion.div
+                    className="aspect-[3/4] rounded-3xl overflow-hidden relative shadow-xl"
+                    whileHover={{ scale: 1.05, rotate: -2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image src="/images/sport_1.jpg" alt="Sport 1" fill className="object-cover" />
+                  </motion.div>
+                  <motion.div
+                    className="aspect-square rounded-3xl overflow-hidden relative shadow-xl"
+                    whileHover={{ scale: 1.05, rotate: 2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image src="/images/sport_2.jpg" alt="Sport 2" fill className="object-cover" />
+                  </motion.div>
                 </div>
                 <div className="space-y-4">
-                  <div className="aspect-square rounded-3xl overflow-hidden relative shadow-xl">
-                    <Image src="https://images.unsplash.com/photo-1511886929837-354d827aae26?w=600&q=80" alt="Sport 3" fill className="object-cover" />
-                  </div>
-                  <div className="aspect-[3/4] rounded-3xl overflow-hidden relative shadow-xl">
-                    <Image src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="Sport 4" fill className="object-cover" />
-                  </div>
+                  <motion.div
+                    className="aspect-square rounded-3xl overflow-hidden relative shadow-xl"
+                    whileHover={{ scale: 1.05, rotate: -2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image src="/images/sport_3.jpg" alt="Sport 3" fill className="object-cover" />
+                  </motion.div>
+                  <motion.div
+                    className="aspect-[3/4] rounded-3xl overflow-hidden relative shadow-xl"
+                    whileHover={{ scale: 1.05, rotate: 2 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image src="/images/sport_4.jpg" alt="Sport 4" fill className="object-cover" />
+                  </motion.div>
                 </div>
               </motion.div>
             </div>

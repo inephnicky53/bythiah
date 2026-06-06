@@ -25,10 +25,10 @@ export default function HealthPage({params}: PillarPageProps) {
     const translations = getTranslations(lang);
 
     const healthImages = [
-        "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80",
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80",
-        "https://images.unsplash.com/photo-1581594658210-c5c85d9f68b1?w=1200&q=80",
-        "https://images.unsplash.com/photo-1511174511562-5f7f1858548a?w=1200&q=80"
+        "/images/sante_slide_1.jpg",
+        "/images/sante_slide_2.jpg",
+        "/images/sante_slide_3.jpg",
+        "/images/sante_slide_4.jpg"
     ];
 
     const fadeInUp = {
@@ -46,7 +46,7 @@ export default function HealthPage({params}: PillarPageProps) {
                     ? "Améliorer la santé pour tous : une priorité pour le développement de la jeunesse."
                     : "Improving health for all: a priority for youth development."}
                 color="#433b1c"
-                backgroundImage={healthImages[0]}
+                backgroundImage="/images/cover_sante.jpg"
             />
 
             {/* SECTION 1: VISION & ENGAGEMENT */}
@@ -149,19 +149,19 @@ export default function HealthPage({params}: PillarPageProps) {
                                 icon: <Activity className="w-10 h-10 text-primary"/>,
                                 title: lang === 'fr' ? "Prévention" : "Prevention",
                                 desc: lang === 'fr' ? "Campagnes d'hygiène et de sensibilisation aux risques sanitaires en milieu scolaire." : "Hygiene campaigns and health risk awareness in schools.",
-                                img: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&q=80"
+                                img: "/images/sante_side_1.jpg"
                             },
                             {
                                 icon: <Syringe className="w-10 h-10 text-primary"/>,
                                 title: lang === 'fr' ? "Diagnostic" : "Diagnosis",
                                 desc: lang === 'fr' ? "Dépistage précoce des maladies chroniques pour une meilleure prise en charge." : "Early screening of chronic diseases for better management.",
-                                img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80"
+                                img: "/images/sante_side_2.jpg"
                             },
                             {
                                 icon: <HeartHandshake className="w-10 h-10 text-primary"/>,
                                 title: lang === 'fr' ? "Accompagnement" : "Support",
                                 desc: lang === 'fr' ? "Soutien médical et psychologique pour les familles vulnérables." : "Medical and psychological support for vulnerable families.",
-                                img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=600&q=80"
+                                img: "/images/sante_side_3.jpg"
                             }
                         ].map((item, i) => (
                             <motion.div
@@ -170,13 +170,16 @@ export default function HealthPage({params}: PillarPageProps) {
                                 transition={{delay: i * 0.2}}
                                 className="group"
                             >
-                                <div
-                                    className="relative h-64 rounded-[2rem] overflow-hidden mb-6 border border-white/10">
+                                <motion.div
+                                    className="relative h-64 rounded-[2rem] overflow-hidden mb-6 border border-white/10"
+                                    whileHover={{ scale: 1.05, rotate: i % 2 === 0 ? -2 : 2 }}
+                                    transition={{ duration: 0.3 }}
+                                >
                                     <NextImage src={item.img} alt={item.title} fill
                                                className="object-cover group-hover:scale-110 transition-transform duration-700"/>
                                     <div
                                         className="absolute inset-0 bg-accent/40 group-hover:bg-accent/20 transition-colors"/>
-                                </div>
+                                </motion.div>
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-3">
                                         {item.icon}

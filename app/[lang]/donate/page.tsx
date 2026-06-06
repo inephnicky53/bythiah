@@ -32,7 +32,7 @@ export default function DonatePage({ params }: DonatePageProps) {
                 ? "Chaque don est une graine d'espoir pour l'éducation, la santé et le sport en Afrique."
                 : "Every donation is a seed of hope for education, health, and sport in Africa."}
             color="#433b1c"
-            backgroundImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+            backgroundImage="/images/cover_don.jpg"
         />
 
         <div className="container mx-auto px-4 py-12 -mt-24 relative z-20">
@@ -147,7 +147,7 @@ export default function DonatePage({ params }: DonatePageProps) {
               <div className="md:w-1/2 relative h-[400px] w-full rounded-[3rem] overflow-hidden shadow-2xl">
                 {/* Utilisation de NextImage pour éviter le conflit */}
                 <NextImage
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
+                    src="/images/side_don_1.jpg"
                     alt="Impact"
                     fill
                     className="object-cover"
