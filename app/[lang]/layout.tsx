@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HtmlLang from '@/components/HtmlLang';
+import UnderConstruction from '@/components/UnderConstruction';
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
@@ -72,11 +73,13 @@ export default function LangLayout({
   return (
     <>
       <HtmlLang lang={lang} />
-      <div className="flex min-h-screen flex-col">
-        <Header lang={lang} />
-        <main className="flex-1 top-0">{children}</main>
-        <Footer lang={lang} />
-      </div>
+      <UnderConstruction lang={lang}>
+        <div className="flex min-h-screen flex-col">
+          <Header lang={lang} />
+          <main className="flex-1 top-0">{children}</main>
+          <Footer lang={lang} />
+        </div>
+      </UnderConstruction>
     </>
   );
 }

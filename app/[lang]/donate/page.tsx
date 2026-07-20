@@ -1,12 +1,11 @@
 'use client';
 
-import { getTranslations, type Locale, t as translate } from '@/lib/i18n';
+import { getTranslations, type Locale } from '@/lib/i18n';
 import PageHero from '@/components/PageHero';
 import DonationForm from '@/components/DonationForm';
 import { motion } from 'framer-motion';
 import { Heart, MessageCircle, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-// Import avec alias pour éviter tout conflit avec l'objet global Image du navigateur
 import NextImage from 'next/image';
 
 interface DonatePageProps {
